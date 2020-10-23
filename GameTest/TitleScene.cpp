@@ -8,7 +8,7 @@ void TitleScene::Init()
 {
 	titleString = "FINDING HOPE";
 	instructionsString = "I know things have been a little dark lately, so I thought we'd go on a trip together to find some hope. Press A to play.";
-	
+	App::PlaySound(".\\Sounds\\PatakasWorld.wav", true);
 	glClearColor(0.074f, 0.035f, 0.07f, 1.0f);
 }
 

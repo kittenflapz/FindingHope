@@ -23,19 +23,19 @@ void Level1::Init()
 	// Griefs
 
 	Grief* grief1 = new Grief(106.0f, 100.0f, 20.0f, 0.5f);
-	Grief* grief2 = new Grief(106.0f, 125.0f, 20.0f, 0.5f);
-	Grief* grief3 = new Grief(106.0f, 150.0f, 20.0f, 0.5f);
-	Grief* grief4 = new Grief(312.0f, 175.0f, 20.0f, 0.5f);
+	Grief* grief2 = new Grief(106.0f, 300.0f, 20.0f, 0.5f);
+	Grief* grief3 = new Grief(106.0f, 500.0f, 20.0f, 0.5f);
+	Grief* grief4 = new Grief(312.0f, 700.0f, 20.0f, 0.5f);
 	Grief* grief5 = new Grief(312.0f, 100.0f, 20.0f, 0.5f);
-	Grief* grief6 = new Grief(312.0f, 100.0f, 20.0f, 0.5f);
-	Grief* grief7 = new Grief(312.0f, 100.0f, 20.0f, 0.5f);
-	Grief* grief8 = new Grief(718.0f, 100.0f, 20.0f, 0.5f);
+	Grief* grief6 = new Grief(312.0f, 300.0f, 20.0f, 0.5f);
+	Grief* grief7 = new Grief(312.0f, 500.0f, 20.0f, 0.5f);
+	Grief* grief8 = new Grief(718.0f, 700.0f, 20.0f, 0.5f);
 	Grief* grief9 = new Grief(718.0f, 100.0f, 20.0f, 0.5f);
-	Grief* grief10 = new Grief(718.0f, 100.0f, 20.0f, 0.5f);
-	Grief* grief11 = new Grief(924.0f, 100.0f, 20.0f, 0.5f);
-	Grief* grief12 = new Grief(924.0f, 100.0f, 20.0f, 0.5f);
-	Grief* grief13 = new Grief(924.0f, 100.0f, 20.0f, 0.5f);
-	Grief* grief14 = new Grief(924.0f, 100.0f, 20.0f, 0.5f);
+	Grief* grief10 = new Grief(718.0f, 300.0f, 20.0f, 0.5f);
+	Grief* grief11 = new Grief(924.0f, 500.0f, 20.0f, 0.5f);
+	Grief* grief12 = new Grief(924.0f, 700.0f, 20.0f, 0.5f);
+	Grief* grief13 = new Grief(512.0f, 300.0f, 20.0f, 0.5f);
+	Grief* grief14 = new Grief(512.0f, 550.0f, 20.0f, 0.5f);
 
 	griefs.push_back(grief1);
 	griefs.push_back(grief2);
@@ -47,6 +47,10 @@ void Level1::Init()
 	griefs.push_back(grief8);
 	griefs.push_back(grief9);
 	griefs.push_back(grief10);
+	griefs.push_back(grief11);
+	griefs.push_back(grief12);
+	griefs.push_back(grief13);
+	griefs.push_back(grief14);
 }
 
 void Level1::Update(float deltaTime)
