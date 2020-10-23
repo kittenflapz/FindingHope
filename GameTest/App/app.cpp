@@ -44,14 +44,14 @@ namespace App
 		glVertex2f(x, y); 
 		float delta = twoPi / triangles;
 		for (unsigned int i = 0; i <= triangles; i++)
-			glVertex2f(x + ((radius * 0.05) * cos(i * delta)),
-				y + ((radius * 0.05) * sin(i * delta)));
+			glVertex2f(x + ((radius * 0.05f) * cos(i * delta)),
+				y + ((radius * 0.05f) * sin(i * delta)));
 		glEnd();
 	}
 
 	void DrawPolygonOutline(int cx, int cy, float radius, float numPoints, float r, float g, float b)
 	{
-		float angle = 2 * M_PI / numPoints;
+		float angle = 2.0f * M_PI / numPoints;
 		for (int i = 0; i < numPoints +1; i++)
 		{
 			if (i > 0) 

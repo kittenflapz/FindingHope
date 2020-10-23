@@ -14,6 +14,19 @@ public:
 	void Update(float deltaTime) override;
 	void Render() override;
 	void Shutdown() override;
+private:
+	Player* player;
+	Hope* hope;
+	LightFuelBar* lightFuelBar;
+	Light* light;
+
+	std::vector<Grief*> griefs;
+
+
+	CollisionChecker collisionChecker;
+	bool hasWon;
+	bool gameOver; // this might go in LevelScene
+	vec2<float> startPosition;
 };
 
 #endif

@@ -191,6 +191,7 @@
     <ClInclude Include="Hope.h" />
     <ClInclude Include="Level1.h" />
     <ClInclude Include="LevelScene.h" />
+    <ClInclude Include="Light.h" />
     <ClInclude Include="LightFuelBar.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="Grief.cpp" />
     <ClCompile Include="Hope.cpp" />
     <ClCompile Include="Level1.cpp" />
+    <ClCompile Include="Light.cpp" />
     <ClCompile Include="LightFuelBar.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="stdafx.cpp">

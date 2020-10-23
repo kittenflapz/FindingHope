@@ -15,8 +15,8 @@ public:
 	void Shutdown() = 0;
 
 	// Getters and setters
-	bool LightIsOn() { return lightOn; }
-	void SetLightOn(bool lightOn) { this->lightOn = lightOn; }
+	inline bool LightIsOn() { return lightOn; }
+	inline void SetLightOn(bool lightOn) { this->lightOn = lightOn; }
 
 private:
 	bool lightOn;

@@ -1,24 +1,21 @@
 #include "stdafx.h"
 #include "Level1.h"
 
-Player* player;
-Hope* hope;
-LightFuelBar* lightFuelBar;
 
-std::vector<Grief*> griefs;
-
-CollisionChecker collisionChecker;
-bool hasWon;
-bool gameOver; // this might go in LevelScene
-vec2<float> startPosition;
 
 void Level1::Init()
 {
+	// Player
 	startPosition = vec2<float>(APP_INIT_WINDOW_WIDTH * 0.5f, 100.0f);
-
 	player = new Player (startPosition.x, startPosition.y, 50.0f, 50.0f, 0.05f);
+
+	// Goal
 	hope = new Hope(APP_INIT_WINDOW_WIDTH * 0.5f, APP_INIT_WINDOW_HEIGHT - 100.0f, 20.0f, 0.5f);
+
+	// UI
 	lightFuelBar = new LightFuelBar(APP_INIT_WINDOW_WIDTH - 50.0f, APP_INIT_WINDOW_HEIGHT * 0.33f, 20.0f, APP_INIT_WINDOW_HEIGHT * 0.33f);
+	light = new Light(512.0f, 384.0f);
+	light->Init();
 
 	// Griefs
 
@@ -111,6 +108,7 @@ void Level1::Render()
 		{
 			player->Render();
 			hope->Render();
+			light->Render();
 			lightFuelBar->Render();
 			glClearColor(0.074f, 0.035f, 0.07f, 1.0f); 
 
@@ -135,4 +133,5 @@ void Level1::Shutdown()
 		delete griefs[i];
 	}
 	delete hope;
+	delete light;
 }
