@@ -13,6 +13,7 @@
 #include "../Player.h"
 #include "../Grief.h"
 #include "../Hope.h"
+#include "../LightFuelBar.h"
 
 #define APP_VIRTUAL_TO_NATIVE_COORDS(_x_,_y_)			_x_ = ((_x_ / APP_VIRTUAL_WIDTH )*2.0f) - 1.0f; _y_ = ((_y_ / APP_VIRTUAL_HEIGHT)*2.0f) - 1.0f;
 #define APP_NATIVE_TO_VIRTUAL_COORDS(_x_,_y_)			_x_ = ((_x_ + 1.0f) * APP_VIRTUAL_WIDTH) / 2.0f; _y_ = ((_y_ + 1.0f) * APP_VIRTUAL_HEIGHT) / 2.0f;
@@ -37,6 +38,7 @@ namespace App
 	// ################ Shape Drawing ######################
 
 	void DrawRect(float sx, float sy, float ex, float ey, float r, float g, float b);
+	void DrawRectOutline(float sx, float sy, float ex, float ey, float r, float g, float b);
 	void DrawCircle(float x, float y, float radius, float r, float g, float b);
 	void DrawPolygonOutline(int x, int y, float radius, float numPoints, float r, float g, float b);
 
@@ -125,5 +127,6 @@ namespace App
 	Player *CreatePlayer(float x, float y, float w, float h, float speed);
 	Grief *CreateGrief(float x, float y, float radius, float speed);
 	Hope *CreateHope(float x, float y, float radius, float speed);
+	LightFuelBar *CreateLightFuelBar(float x, float y, float width, float maxFuel);
 };
 #endif //_APP_H

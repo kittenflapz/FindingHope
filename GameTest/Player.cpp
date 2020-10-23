@@ -27,20 +27,20 @@ void Player::Update(float deltaTime)
 	// Check inputs 
 	if (App::GetController().GetLeftThumbStickX() > 0.5f)
 	{
-		position.x += 1 * speed * deltaTime;
+		position.x += speed * deltaTime;
 	}
 	if (App::GetController().GetLeftThumbStickX() < -0.5f)
 	{
-		position.x -= 1 * speed * deltaTime;
+		position.x -= speed * deltaTime;
 	}
 
 	if (App::GetController().GetLeftThumbStickY() > 0.5f)
 	{
-		position.y -= 1 * speed * deltaTime;
+		position.y += speed * deltaTime;
 	}
 	if (App::GetController().GetLeftThumbStickY() < -0.5f)
 	{
-		position.y += 1 * speed * deltaTime;
+		position.y -= speed * deltaTime;
 	}
 }
 

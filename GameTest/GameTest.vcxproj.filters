@@ -41,6 +41,7 @@
     <ClCompile Include="Hope.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="LightFuelBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App\app.h">
@@ -91,6 +92,7 @@
     <ClInclude Include="Hope.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
+    <ClInclude Include="LightFuelBar.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

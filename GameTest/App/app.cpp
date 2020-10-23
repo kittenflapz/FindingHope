@@ -69,7 +69,25 @@ namespace App
 		APP_VIRTUAL_TO_NATIVE_COORDS(ex, ey);
 #endif
 		glBegin(GL_TRIANGLES);
-		glColor3f(r, g, b); // Yellow
+		glColor3f(r, g, b);
+		glVertex2f(sx, sy);
+		glVertex2f(ex, sy);
+		glVertex2f(ex, ey);
+
+		glVertex2f(ex, ey);
+		glVertex2f(sx, ey);
+		glVertex2f(sx, sy);
+		glEnd();
+	}
+
+	void DrawRectOutline(float sx, float sy, float ex, float ey, float r, float g, float b)
+	{
+#if APP_USE_VIRTUAL_RES		
+		APP_VIRTUAL_TO_NATIVE_COORDS(sx, sy);
+		APP_VIRTUAL_TO_NATIVE_COORDS(ex, ey);
+#endif
+		glBegin(GL_LINE_STRIP);
+		glColor3f(r, g, b); 
 		glVertex2f(sx, sy);
 		glVertex2f(ex, sy);
 		glVertex2f(ex, ey);
@@ -98,6 +116,11 @@ namespace App
 	Hope *CreateHope(float x, float y, float radius, float speed)
 	{
 		return new Hope(x, y, radius, speed);
+	}
+
+	LightFuelBar *CreateLightFuelBar(float x, float y, float width, float maxFuel)
+	{
+		return new LightFuelBar(x, y, width, maxFuel);
 	}
 
 	bool IsKeyPressed(int key)
