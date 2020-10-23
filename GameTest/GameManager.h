@@ -1,9 +1,8 @@
-#include "stdafx.h"
+#pragma once
 
-// Global variables for navigating between scenes
-int currentSceneIndex;
+extern bool level1Done;
 
 class GameManager
 {
-
+	
 };

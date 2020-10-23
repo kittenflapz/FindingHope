@@ -1,5 +1,5 @@
-#pragma once
 #include "LevelScene.h"
+#include "GameManager.h"
 
 #ifndef LEVEL1_H
 #define LEVEL1_H

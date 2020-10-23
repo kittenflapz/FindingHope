@@ -50,6 +50,9 @@ void Level1::Update(float deltaTime)
 {
 	if (!gameOver)
 	{
+		player->Update(deltaTime);
+		hope->Update(deltaTime);
+
 		if (App::GetController().CheckButton(XINPUT_GAMEPAD_A, false))
 		{
 			if (lightFuelBar->GetCurrentFuel() > 0)
@@ -62,9 +65,6 @@ void Level1::Update(float deltaTime)
 		{
 			lightOn = false;
 		}
-
-		player->Update(deltaTime);
-		hope->Update(deltaTime);
 
 		for (int i = 0; i < griefs.size(); i++)
 		{
@@ -100,6 +100,7 @@ void Level1::Render()
 	{
 		std::string scoreString = "Hope: You've found me! Thank you!";
 		App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, scoreString.c_str());
+		level1Done = true;
 	}
 	else
 	{

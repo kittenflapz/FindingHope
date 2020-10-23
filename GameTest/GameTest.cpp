@@ -8,22 +8,24 @@
 //------------------------------------------------------------------------
 #include "app\app.h"
 //------------------------------------------------------------------------
+#include "GameManager.h"
 #include "Scene.h"
 #include "LevelScene.h"
+#include "TitleScene.h"
 #include "Level1.h"
-#include "GameManager.h"
+
 
 Scene* currentScene;
-extern int currentSceneIndex = 0;
+bool gameStarted = false;
+bool level1Done = false;
 
-// make a title scene and see if you can change the scene on a keypress using the global currentSceneIndex variable
 
 //------------------------------------------------------------------------
 // Called before first update. Do any initial setup here.
 //------------------------------------------------------------------------
 void Init()
 {
-	currentScene = new Level1();
+	currentScene = new TitleScene();
 	currentScene->Init();
 }
 
@@ -33,6 +35,24 @@ void Init()
 //------------------------------------------------------------------------
 void Update(float deltaTime)
 {
+	// This is not really how I want the scene switching to be, a singleton may be better
+
+	if (gameStarted == false && App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
+	{
+		delete currentScene;
+		currentScene = new Level1();
+		currentScene->Init();
+		gameStarted = true;
+	}
+
+	//if (gameStarted == true && level1Done == true)
+	//{
+	//	delete currentScene;
+	//	currentScene = new TitleScene();
+	//	currentScene->Init();
+	//	gameStarted = true;
+	//}
+
 	currentScene->Update(deltaTime);
 }
 
