@@ -10,6 +10,7 @@ Player::Player(float x, float y, float w, float h, float speed)
 	defaultR = r = 0.694f;
 	defaultB = b = 0.274f;
 	defaultG = g = 0.137f;
+	dragMultiplier = 0.9f;
 
 	
 }
@@ -24,24 +25,61 @@ void Player::Init()
 
 void Player::Update(float deltaTime)
 {
+	CheckBounds();
+	ResolveInput(deltaTime);
+	Move();
+
+}
+
+void Player::CheckBounds() 
+{
+	if (position.x + scale.x > APP_INIT_WINDOW_WIDTH)
+	{
+		position.x = APP_INIT_WINDOW_WIDTH - scale.x;
+	}
+	else if (position.x - scale.x < 0)
+	{
+		position.x = APP_INIT_WINDOW_WIDTH + scale.x;
+	}
+
+	if (position.y + scale.y > APP_INIT_WINDOW_HEIGHT)
+	{
+		position.y = APP_INIT_WINDOW_HEIGHT - scale.y;
+	}
+	if (position.y - scale.y < 0)
+	{
+		position.y = APP_INIT_WINDOW_HEIGHT - scale.y;
+	}
+}
+
+void Player::ResolveInput(float deltaTime)
+{
 	// Check inputs 
 	if (App::GetController().GetLeftThumbStickX() > 0.5f)
 	{
-		position.x += speed * deltaTime;
+		velocity.x += speed * deltaTime;
 	}
 	if (App::GetController().GetLeftThumbStickX() < -0.5f)
 	{
-		position.x -= speed * deltaTime;
+		velocity.x -= speed * deltaTime;
 	}
 
 	if (App::GetController().GetLeftThumbStickY() > 0.5f)
 	{
-		position.y += speed * deltaTime;
+		velocity.y += speed * deltaTime;
 	}
 	if (App::GetController().GetLeftThumbStickY() < -0.5f)
 	{
-		position.y -= speed * deltaTime;
+		velocity.y -= speed * deltaTime;
 	}
+}
+
+void Player::Move() 
+{
+	// Apply some drag 
+	velocity *= dragMultiplier;
+
+	position += velocity;
 }
 
 void Player::Render()

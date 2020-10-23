@@ -45,13 +45,14 @@ void Update(float deltaTime)
 		gameStarted = true;
 	}
 
-	//if (gameStarted == true && level1Done == true)
-	//{
-	//	delete currentScene;
-	//	currentScene = new TitleScene();
-	//	currentScene->Init();
-	//	gameStarted = true;
-	//}
+	if (gameStarted == true && level1Done == true)
+	{
+		Sleep(2000);
+		delete currentScene;
+		currentScene = new TitleScene();
+		currentScene->Init();
+		gameStarted = false;
+	}
 
 	currentScene->Update(deltaTime);
 }

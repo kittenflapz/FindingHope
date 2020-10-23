@@ -7,16 +7,6 @@ bool CollisionChecker::PlayerEmotion(Player *player, Emotion *emotion)
         player->GetPosition().x, player->GetPosition().y, player->GetScale().x, player->GetScale().y);
 }
 
-int CollisionChecker::PaddleBallResponse(Player paddle, Emotion ball)
-{
-    float dx = std::max(paddle.GetPosition().x - ball.GetPosition().x, 0.0f);
-    dx = std::max(dx, paddle.GetPosition().x - (paddle.GetPosition().x + paddle.GetScale().x));
-    float dy = std::max(paddle.GetPosition().y - ball.GetPosition().y, 0.0f);
-    dy = std::max(dy, ball.GetPosition().y - (paddle.GetPosition().y + paddle.GetScale().y));
-
-    return (dx * dx) + (dy * dy);
-}
-
 bool CollisionChecker::CircleRect(float cx, float cy, float radius, float rx, float ry, float rw, float rh)
 {
     // temporary variables to set edges for testing
@@ -40,3 +30,5 @@ bool CollisionChecker::CircleRect(float cx, float cy, float radius, float rx, fl
     }
     return false;
 }
+
+

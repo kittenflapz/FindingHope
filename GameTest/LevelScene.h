@@ -13,6 +13,13 @@ public:
 	void Update(float deltaTime) = 0;
 	void Render() = 0;
 	void Shutdown() = 0;
+
+	// Getters and setters
+	bool LightIsOn() { return lightOn; }
+	void SetLightOn(bool lightOn) { this->lightOn = lightOn; }
+
+private:
+	bool lightOn;
 };
 
 #endif //BENGINE_GAMESCENE_H

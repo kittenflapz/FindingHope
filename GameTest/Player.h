@@ -31,10 +31,17 @@ public:
 	void SetSpeed(float speed);
 	void SetColor(float r, float g, float b);
 
+	// Other functions
+	void CheckBounds();
+	void ResolveInput(float deltaTime);
+	void Move();
+
 private:
 	vec2<float> position;
+	vec2<float> velocity;
 	vec2<float> scale;
 	float speed;
+	float dragMultiplier;
 
 	// Colour variables
 	// Current

@@ -29,11 +29,16 @@ public:
 	void SetVelocity(float x, float y);
 	void SetColor(float r, float g, float b);
 
+	void Pulse(float deltaTime);
+
 private:
 	vec2<float> position;
 	vec2<float> velocity;
 	float radius;
+	float maxRadius;
+	float minRadius;
 	float speed;
+	float pulser;
 	float r;
 	float g;
 	float b;

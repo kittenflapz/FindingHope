@@ -1,5 +1,5 @@
 #include "stdafx.h"
-
+#include "vec2.h"
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 

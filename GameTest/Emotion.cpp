@@ -11,6 +11,9 @@ Emotion::Emotion(float x, float y, float radius, float speed)
 	r = 0.0f;
 	g = 0.0f;
 	b = 0.0f;
+	pulser = 0.1f;
+	maxRadius = radius * 1.1f;
+	minRadius = radius * 0.9f;
 }
 
 Emotion::~Emotion()
@@ -24,14 +27,28 @@ void Emotion::Init()
 
 void Emotion::Update(float deltaTime)
 {
-	
+	Pulse(deltaTime);
+}
+
+void Emotion::Pulse(float deltaTime)
+{
+	radius += pulser;
+	if (radius > maxRadius || radius < minRadius)
+	{
+		pulser = -pulser;
+	}
 }
 
 void Emotion::Render()
 {
-	//App::DrawCircle(position.x, position.y, radius, r, g, b);
-
+	// Draw outline
 	App::DrawPolygonOutline(position.x, position.y, radius, 20, r, g, b);
+	
+	// Draw left eye
+	App::DrawLine(position.x - 7.5f, position.y - 1.0f, position.x - 0.5f, position.y - 0.5f, r, g, b);
+
+	// Draw right eye
+	App::DrawLine(position.x + 7.5f, position.y - 1.0f, position.x + 0.5f, position.y - 0.5f, r, g, b);
 }
 
 void Emotion::SetPosition(float x, float y)
