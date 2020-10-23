@@ -1,0 +1,32 @@
++ x is left to right and + y is bottom to top (like normal)
+
+sprites take bmp images (make sure the path is right) and the dimensions of the sprite page (rows, columns) 
+
+
+CreateAnimation (pass a unique ID, a duration and an array of sprites)
+
+SetAnimation(pass unique id_)
+
+sound - 32 bit wav file uncompressed and a bool for true/false
+
+stopsound - same file name
+
+ask a sound if its currently playing - issoundplaying
+
+sprite format - 32bit bmp with ARGB 8
+
+
+point object, vec2
+
+gameobject system
+
+implement polygon drawing
+
+don't reimplement sprite at the lowest level, just make a component that uses the CSimpleSprite functions
+
+
+
+
+
+
+
