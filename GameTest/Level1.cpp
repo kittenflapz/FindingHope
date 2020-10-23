@@ -78,12 +78,14 @@ void Level1::Update(float deltaTime)
 			griefs[i]->Update(deltaTime);
 			if (collisionChecker.PlayerEmotion(player, griefs[i]))
 			{
+				App::PlaySound(".\\Sounds\\Pop.wav", false);
 				gameOver = true;
 			}
 		}
 
 		if (collisionChecker.PlayerEmotion(player, hope))
 		{
+			App::PlaySound(".\\Sounds\\Bells.wav", false);
 			hasWon = true;
 		}
 
