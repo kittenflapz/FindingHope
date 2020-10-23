@@ -1,18 +1,17 @@
 #include "stdafx.h"
 
-#ifndef BENGINE_GAMEOBJECT_H
-#define BENGINE_GAMEOBJECT_H
+#ifndef GAMEOBJECT_H
+#define GAMEOBJECT_H
 
-//---------------------------------------------------------------------------------
-// Base class for all game objects
-//---------------------------------------------------------------------------------
+// Base class for game objects
+
 class  GameObject
 {
 public:
-	int m_id; // The ID for the game object
+	int id; // The ID for the game object
 
 	GameObject();
-	virtual ~GameObject();
+	virtual ~GameObject(); // Memory leaks are spooky 
 
 	virtual void Init() = 0;
 	virtual void Update(float deltaTime) = 0;
@@ -25,4 +24,4 @@ public:
 
 };
 
-#endif //BENGINE_GAMEOBJECT_H
+#endif GAMEOBJECT_H

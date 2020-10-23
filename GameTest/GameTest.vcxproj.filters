@@ -42,6 +42,9 @@
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="LightFuelBar.cpp" />
+    <ClCompile Include="Level1.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App\app.h">
@@ -93,6 +96,18 @@
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="LightFuelBar.h" />
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\GameObjects\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelScene.h">
+      <Filter>Header Files\GameObjects\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Level1.h">
+      <Filter>Header Files\GameObjects\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -112,6 +127,12 @@
     </Filter>
     <Filter Include="Source Files\GameObjects">
       <UniqueIdentifier>{222414fa-af77-4561-833c-5e11f0295ca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes">
+      <UniqueIdentifier>{d4706da2-0a5f-44d8-a5c0-4981e1ef1193}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects\Scenes">
+      <UniqueIdentifier>{84a3b71f-8ee3-4563-866c-b5bac9f5380d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

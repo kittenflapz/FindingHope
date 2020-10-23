@@ -103,20 +103,6 @@ namespace App
 		return new CSimpleSprite(fileName, columns, rows);
 	}
 
-	Player *CreatePlayer(float x, float y, float w, float h, float speed)
-	{
-		return new Player(x, y, w, h, speed);
-	}
-
-	Grief *CreateGrief(float x, float y, float radius, float speed)
-	{
-		return new Grief(x, y, radius, speed);
-	}
-
-	Hope *CreateHope(float x, float y, float radius, float speed)
-	{
-		return new Hope(x, y, radius, speed);
-	}
 
 	LightFuelBar *CreateLightFuelBar(float x, float y, float width, float maxFuel)
 	{

@@ -1,5 +1,8 @@
 #pragma once
 #include "GameObject.h"
+
+// To display the amount of fuel the player has left on their light
+
 class LightFuelBar :
 	public GameObject
 {

@@ -1,5 +1,11 @@
 #pragma once
 #include "Emotion.h"
+
+#ifndef HOPE_H
+#define HOPE_H
+
+// To display 'Hopes', friendlies that the player needs to save by collecting
+
 class Hope :
 	public Emotion
 {
@@ -9,4 +15,6 @@ public:
 
 	// Functions specific to Hope
 };
+
+#endif // HOPE_H
 

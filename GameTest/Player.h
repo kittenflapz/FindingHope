@@ -1,10 +1,12 @@
-#pragma once
 #include "stdafx.h"
 #include "vec2.h"
 #include "GameObject.h"
 
 #ifndef PLAYER_H
 #define PLAYER_H
+
+// The player class. Handles most input.
+
 class Player :
 	public GameObject
 {
@@ -45,4 +47,4 @@ private:
 	float defaultG;
 	float defaultB;
 };
-#endif
+#endif // PLAYER_H

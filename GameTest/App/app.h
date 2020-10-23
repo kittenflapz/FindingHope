@@ -14,6 +14,7 @@
 #include "../Grief.h"
 #include "../Hope.h"
 #include "../LightFuelBar.h"
+#include "../CollisionChecker.h"
 
 #define APP_VIRTUAL_TO_NATIVE_COORDS(_x_,_y_)			_x_ = ((_x_ / APP_VIRTUAL_WIDTH )*2.0f) - 1.0f; _y_ = ((_y_ / APP_VIRTUAL_HEIGHT)*2.0f) - 1.0f;
 #define APP_NATIVE_TO_VIRTUAL_COORDS(_x_,_y_)			_x_ = ((_x_ + 1.0f) * APP_VIRTUAL_WIDTH) / 2.0f; _y_ = ((_y_ + 1.0f) * APP_VIRTUAL_HEIGHT) / 2.0f;
@@ -122,11 +123,5 @@ namespace App
 	const CController &GetController( int pad = 0 );
 
 
-/* GAMEOBJECT CREATION*/
-
-	Player *CreatePlayer(float x, float y, float w, float h, float speed);
-	Grief *CreateGrief(float x, float y, float radius, float speed);
-	Hope *CreateHope(float x, float y, float radius, float speed);
-	LightFuelBar *CreateLightFuelBar(float x, float y, float width, float maxFuel);
 };
 #endif //_APP_H

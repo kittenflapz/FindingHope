@@ -2,20 +2,20 @@
 #include "GameObject.h"
 #include <vector>
 
-GameObject::GameObject() 
+GameObject::GameObject() : id(0)
 {
 
 }
 
 void GameObject::setID(int id)
 {
-	m_id = id;
+	id = id;
 }
 
 
 int GameObject::getID() const // ***Not sure any of the ID stuff is needed***
 {
-	return m_id;
+	return id;
 }
 
 

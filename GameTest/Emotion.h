@@ -1,7 +1,11 @@
-#pragma once
 #include "GameObject.h"
 #include "stdafx.h"
 #include "vec2.h"
+
+#ifndef EMOTION_H
+#define EMOTION_H
+
+// Base class for 'Emotions' - NPCs
 
 class Emotion :
 	public GameObject
@@ -36,3 +40,4 @@ private:
 	
 };
 
+#endif EMOTION_H
