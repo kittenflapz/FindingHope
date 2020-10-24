@@ -2,7 +2,7 @@
 #include "LevelScene.h"
 #include "TitleScene.h"
 #include "Level1.h"
-//#include "Level2.h"
+#include "Level2.h"
 //#include "Level3.h"
 
 #ifndef SCENEMANAGER_H
@@ -34,13 +34,16 @@ public:
 			Init();
 			break;
 		case SceneState::LEVEL1_SCENE:
+			currentScene->Shutdown();
 			currentScene = new Level1();
 			Init();
 			break;
-			/*	case SceneState::LEVEL2_SCENE:
-					currentScene = new Level2();
-					break;
-				case SceneState::LEVEL3_SCENE:
+		case SceneState::LEVEL2_SCENE:
+			currentScene->Shutdown();
+			currentScene = new Level2();
+			Init();
+			break;
+				/*case SceneState::LEVEL3_SCENE:
 					currentScene = new Level3();
 					break;*/
 					/*case SceneState::GAMEOVER_SCENE:

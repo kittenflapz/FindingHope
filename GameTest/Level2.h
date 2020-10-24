@@ -1,11 +1,11 @@
 #include "LevelScene.h"
 
-#ifndef LEVEL1_H
-#define LEVEL1_H
+#ifndef LEVEL2_H
+#define LEVEL2_H
 
-// Level 1!
+// Level 2!
 
-class Level1 :
+class Level2 :
 	public LevelScene
 {
 public:
@@ -19,19 +19,11 @@ private:
 	LightFuelBar* lightFuelBar;
 	Light* light;
 
-	std::vector<Grief*> griefs;
-
-
 	CollisionChecker collisionChecker;
 	bool hasWon;
-	bool gameOver; 
+	bool gameOver; // this might go in LevelScene
 	vec2<float> startPosition;
-
-	// For ending the level gracefully
-	float timeToWaitOnWinMessage;
-	float timerForWinMessage;
-
 };
 
-#endif
+#endif // LEVEL2_H
 

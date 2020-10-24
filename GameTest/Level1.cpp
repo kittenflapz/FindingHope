@@ -11,6 +11,8 @@ void Level1::Init()
 
 	// Goal
 	hope = new Hope(APP_INIT_WINDOW_WIDTH * 0.5f, APP_INIT_WINDOW_HEIGHT - 100.0f, 20.0f, 0.5f);
+	timeToWaitOnWinMessage = 200.0f;
+	timerForWinMessage = 0.0f;
 
 	// UI
 	lightFuelBar = new LightFuelBar(APP_INIT_WINDOW_WIDTH - 50.0f, APP_INIT_WINDOW_HEIGHT * 0.33f, 20.0f, APP_INIT_WINDOW_HEIGHT * 0.33f);
@@ -80,7 +82,7 @@ void Level1::Update(float deltaTime)
 			}
 		}
 
-		if (collisionChecker.PlayerEmotion(player, hope))
+		if (collisionChecker.PlayerEmotion(player, hope) && !hasWon)
 		{
 			App::PlaySound(".\\Sounds\\Bells.wav", false);
 			hasWon = true;
@@ -98,9 +100,17 @@ void Level1::Render()
 {
 	if (hasWon)
 	{
-		std::string scoreString = "Hope: You've found me! Thank you!";
-		App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, scoreString.c_str());
-		//level1Done = true;
+		if (timerForWinMessage < timeToWaitOnWinMessage)
+		{
+			std::string scoreString = "Hope: You've found me! Thank you!";
+			App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, scoreString.c_str());
+			timerForWinMessage++;
+		}
+		else
+		{
+			TheSceneManager::Instance()->ChangeSceneState(LEVEL2_SCENE);
+		}
+		
 	}
 	else
 	{
