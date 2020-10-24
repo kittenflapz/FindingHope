@@ -14,6 +14,9 @@ Emotion::Emotion(float x, float y, float radius, float speed)
 	pulser = 0.1f;
 	maxRadius = radius * 1.1f;
 	minRadius = radius * 0.9f;
+	blinkStateTime = 20.0f;
+	blinkTimer = 0.0f;
+	currentBlinkState = BlinkState::NOTBLINKING;
 }
 
 Emotion::~Emotion()
@@ -40,17 +43,63 @@ void Emotion::Pulse(float deltaTime)
 	}
 }
 
+Emotion::BlinkState Emotion::SwitchStateAndResetBlinkTime()
+{
+	// Get a uniformly distributed random number
+	// for refactoring - can I do this somewhere else without The Big Sad happening?
+	std::random_device randdev;
+	std::mt19937 generator(randdev());
+	std::uniform_real_distribution<> distrib(0, 60);
+
+	blinkStateTime = distrib(generator);
+	blinkTimer = 0;
+
+	return (currentBlinkState == BlinkState::BLINKING ? BlinkState::NOTBLINKING : BlinkState::BLINKING);
+}
+
+
 void Emotion::Render()
 {
 	// Draw outline
 	App::DrawPolygonOutline(position.x, position.y, radius, 20, r, g, b);
-	
-	// Draw left eye
-	App::DrawLine(position.x - 7.5f, position.y - 1.0f, position.x - 0.5f, position.y - 0.5f, r, g, b);
 
-	// Draw right eye
-	App::DrawLine(position.x + 7.5f, position.y - 1.0f, position.x + 0.5f, position.y - 0.5f, r, g, b);
+	// Handle whether we should be blinking or not
+	if (blinkTimer < blinkStateTime)
+	{
+		blinkTimer++;
+	}
+	else
+	{
+		currentBlinkState = SwitchStateAndResetBlinkTime();
+	}
+
+
+	// Blinking
+	switch (currentBlinkState)
+	{
+	case BlinkState::BLINKING:
+		// Draw left eye blink
+		App::DrawLine(position.x - 7.5f, position.y - 1.0f, position.x - 0.5f, position.y - 0.5f, r, g, b);
+		// Draw right eye blink
+		App::DrawLine(position.x + 7.5f, position.y - 1.0f, position.x + 0.5f, position.y - 0.5f, r, g, b);
+		break;
+	case BlinkState::NOTBLINKING:
+		// Draw left eye 
+		App::DrawPolygonOutline(position.x - 6.5f, position.y - 1.0f, 3.0f, 5, 1.0f, 1.0f, 1.0f);
+		// Draw right eye
+		App::DrawPolygonOutline(position.x + 6.5f, position.y - 1.0f, 3.0f, 5, 1.0f, 1.0f, 1.0f);
+		break;
+	default:
+		break;
+	}
 }
+
+//	// Draw left eye
+//	App::DrawLine(position.x - 7.5f, position.y - 1.0f, position.x - 0.5f, position.y - 0.5f, r, g, b);
+//
+//	// Draw right eye
+//	App::DrawLine(position.x + 7.5f, position.y - 1.0f, position.x + 0.5f, position.y - 0.5f, r, g, b);
+//}
 
 void Emotion::SetPosition(float x, float y)
 {

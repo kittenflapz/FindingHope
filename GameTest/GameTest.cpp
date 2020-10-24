@@ -18,7 +18,7 @@ SceneManager* SceneManager::instance = 0;
 //------------------------------------------------------------------------
 void Init()
 {
-	TheSceneManager::Instance()->ChangeSceneState(TITLE_SCENE);
+	TheSceneManager::Instance()->ChangeSceneState(SceneState::TITLE_SCENE);
 	TheSceneManager::Instance()->Init();
 }
 

@@ -19,7 +19,7 @@ void TitleScene::Update(float deltaTime)
 {
 	if (App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
 	{
-		TheSceneManager::Instance()->ChangeSceneState(LEVEL1_SCENE);
+		TheSceneManager::Instance()->ChangeSceneState(SceneState::LEVEL1_SCENE);
 	}
 
 }

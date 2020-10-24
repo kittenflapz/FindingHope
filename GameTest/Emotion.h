@@ -7,9 +7,18 @@
 
 // Base class for 'Emotions' - NPCs
 
+
+
 class Emotion :
 	public GameObject
 {
+	enum class BlinkState
+	{
+		BLINKING,
+		NOTBLINKING
+	};
+
+
 public:
 	Emotion(float x, float y, float radius, float speed);
 	~Emotion();
@@ -31,19 +40,34 @@ public:
 	void SetPulseRate(float pulseRate);
 
 	void Pulse(float deltaTime);
+	BlinkState SwitchStateAndResetBlinkTime();
+
+
 
 private:
+	// Movement
 	vec2<float> position;
 	vec2<float> velocity;
 	float radius;
 	float maxRadius;
 	float minRadius;
 	float speed;
+
+	// Animation
 	float pulser;
+	
+	// Color
 	float r;
 	float g;
 	float b;
-	
+
+	// Blink
+	BlinkState currentBlinkState;
+	double blinkStateTime;
+	double blinkTimer;
+
+
+
 };
 
 #endif EMOTION_H

@@ -5,7 +5,7 @@
 #define SCENE_H
 
 
-enum SceneState
+enum class SceneState
 {
 	NO_SCENE = -1,
 	TITLE_SCENE,

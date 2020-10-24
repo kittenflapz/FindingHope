@@ -108,7 +108,7 @@ void Level1::Render()
 		}
 		else
 		{
-			TheSceneManager::Instance()->ChangeSceneState(LEVEL2_SCENE);
+			TheSceneManager::Instance()->ChangeSceneState(SceneState::LEVEL2_SCENE);
 		}
 		
 	}
