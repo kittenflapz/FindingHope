@@ -29,6 +29,8 @@ void Level2::Init()
 
 void Level2::Update(float deltaTime)
 {
+	LevelScene::Update(deltaTime);
+
 	if (!restartLevel)
 	{
 		player->Update(deltaTime);

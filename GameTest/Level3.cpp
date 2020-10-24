@@ -59,6 +59,7 @@ void Level3::Init()
 
 void Level3::Update(float deltaTime)
 {
+	LevelScene::Update(deltaTime);
 	if (!restartLevel)
 	{
 		player->Update(deltaTime);

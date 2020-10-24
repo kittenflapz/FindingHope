@@ -10,7 +10,7 @@ class LevelScene : public Scene
 {
 public:
 	void Init() = 0;
-	void Update(float deltaTime) = 0;
+	void Update(float deltaTime);
 	void Render() = 0;
 	void Shutdown() = 0;
 

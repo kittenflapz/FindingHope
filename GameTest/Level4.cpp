@@ -15,15 +15,15 @@ void Level4::Init()
 	light = new Light(512.0f, 384.0f);
 	light->Init();
 
-	
+	// Enemies
 	perfectionism = new Perfectionism(APP_INIT_WINDOW_WIDTH * 0.5f, APP_INIT_WINDOW_HEIGHT * 0.5, 20.0f, 0.5f);
-
 	perfectionism->SetPatrolPoints({ vec2<float>(200.0f, 568.0f), vec2<float>(200.0f, 200.0f), vec2<float>(824.0f, 200.0f), vec2<float>(824.0f, 568.0f) });
 
 }
 
 void Level4::Update(float deltaTime)
 {
+	LevelScene::Update(deltaTime);
 	if (!restartLevel)
 	{
 		player->Update(deltaTime);

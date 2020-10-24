@@ -71,6 +71,10 @@
     <ClCompile Include="Level4.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="GameOverScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App\app.h">
@@ -158,6 +162,9 @@
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="Level4.h">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScene.h">
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
