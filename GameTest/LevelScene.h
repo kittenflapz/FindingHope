@@ -9,9 +9,9 @@
 class LevelScene : public Scene
 {
 public:
-	void Init() = 0;
+	void Init();
 	void Update(float deltaTime);
-	void Render() = 0;
+	void Render();
 	void Shutdown() = 0;
 
 	// Getters and setters
@@ -20,6 +20,7 @@ public:
 
 private:
 	bool lightOn;
+	CSimpleSprite* flameSprites[3];
 };
 
 #endif //BENGINE_GAMESCENE_H

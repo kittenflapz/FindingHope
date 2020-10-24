@@ -3,6 +3,7 @@
 
 void Level3::Init()
 {
+	LevelScene::Init();
 	hasWon = false;
 	// Player
 	startPosition = vec2<float>(APP_INIT_WINDOW_WIDTH * 0.5f, 100.0f);
@@ -157,10 +158,7 @@ void Level3::Render()
 			glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		}
 	}
-
-	int lives = TheSceneManager::Instance()->GetLivesLeft();
-	std::string livesString = "Lives: " + std::to_string(lives);
-	App::Print(100.0f, APP_INIT_WINDOW_HEIGHT - 100.0f, livesString.c_str());
+	LevelScene::Render();
 }
 
 void Level3::Shutdown()

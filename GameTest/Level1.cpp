@@ -5,6 +5,8 @@
 
 void Level1::Init()
 {
+	LevelScene::Init();
+	 
 	// Player
 	startPosition = vec2<float>(APP_INIT_WINDOW_WIDTH * 0.5f, 100.0f);
 	player = new Player (startPosition.x, startPosition.y, 50.0f, 50.0f, 0.05f);
@@ -139,9 +141,8 @@ void Level1::Render()
 		}
 	}
 
-	int lives = TheSceneManager::Instance()->GetLivesLeft();
-	std::string livesString = "Lives: " + std::to_string(lives);
-	App::Print(100.0f, APP_INIT_WINDOW_HEIGHT - 100.0f, livesString.c_str());
+	// Everything that we need to render in the base class is UI, so we'll call it last
+	LevelScene::Render();
 }
 
 void Level1::Shutdown()

@@ -6,6 +6,7 @@
 #include "Level3.h"
 #include "Level4.h"
 #include "GameOverScene.h"
+#include "WinScene.h"
 
 #ifndef SCENEMANAGER_H
 #define SCENEMANAGER_H
@@ -60,11 +61,12 @@ public:
 			currentScene = new GameOverScene();
 			Init();
 			break;
-						/*case SceneState::WIN_SCENE:
-				currentScene = new WinScene();
-				break;*/
+		case SceneState::WIN_SCENE:
+			Shutdown();
+			currentScene = new WinScene();
+			Init();
+			break;
 		default:
-
 			break;
 		}
 	}
