@@ -12,6 +12,7 @@ void TitleScene::Init()
 	App::PlaySound(".\\Sounds\\PatakasWorld.wav", true);
 	light = new Light(512.0f, 384.0f);
 	light->Init();
+	TheSceneManager::Instance()->SetLivesLeft(3);
 	glClearColor(0.074f, 0.035f, 0.07f, 1.0f);
 }
 

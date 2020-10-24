@@ -79,6 +79,7 @@ void Level1::Update(float deltaTime)
 			{
 				App::PlaySound(".\\Sounds\\Pop.wav", false);
 				restartLevel = true;
+				TheSceneManager::Instance()->LoseLife();
 			}
 		}
 
@@ -94,6 +95,8 @@ void Level1::Update(float deltaTime)
 		player->SetPosition(startPosition.x, startPosition.y);
 		restartLevel = false;
 	}
+	
+
 }
 
 void Level1::Render()
@@ -133,6 +136,10 @@ void Level1::Render()
 			glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		}
 	}
+
+	int lives = TheSceneManager::Instance()->GetLivesLeft();
+	std::string livesString = "Lives: " + std::to_string(lives);
+	App::Print(100.0f, APP_INIT_WINDOW_HEIGHT - 100.0f, livesString.c_str());
 }
 
 void Level1::Shutdown()

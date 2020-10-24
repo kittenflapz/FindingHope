@@ -10,6 +10,7 @@ vec2<float> AIController::GetNormalizedVectorTowardsPoint(vec2<float> position, 
 	return directionalVector;
 }
 
+// maybe big YAGNI
 vec2<float> AIController::DirectionToNextNode(vec2<float> position)
 {
 	// Get the next position from the front of the queue

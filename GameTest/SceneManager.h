@@ -87,11 +87,25 @@ public:
 	}
 
 
+	void SetLivesLeft(int livesLeft)
+	{
+		this->livesLeft = livesLeft;
+	}
 
+	int GetLivesLeft()
+	{
+		return livesLeft;
+	}
+
+	void LoseLife()
+	{
+		livesLeft--;
+	}
 private:
 	static SceneManager* instance;
 	Scene* currentScene;
 	SceneState currentSceneState;
+	int livesLeft;
 };
 
 typedef SceneManager TheSceneManager;

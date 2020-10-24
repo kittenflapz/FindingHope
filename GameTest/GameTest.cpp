@@ -29,27 +29,6 @@ void Init()
 void Update(float deltaTime)
 {
 	TheSceneManager::Instance()->Update(deltaTime);
-
-	//// This is not really how I want the scene switching to be, a singleton may be better
-
-	//if (gameStarted == false && App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
-	//{
-	//	delete currentScene;
-	//	currentScene = new Level1();
-	//	currentScene->Init();
-	//	gameStarted = true;
-	//}
-
-	//if (gameStarted == true && level1Done == true)
-	//{
-	//	Sleep(2000);
-	//	delete currentScene;
-	//	currentScene = new TitleScene();
-	//	currentScene->Init();
-	//	gameStarted = false;
-	//}
-
-	//currentScene->Update(deltaTime);
 }
 
 //------------------------------------------------------------------------

@@ -32,6 +32,13 @@ void Level4::Update(float deltaTime)
 		perfectionism->PatrolInLoop();
 		perfectionism->Update(deltaTime);
 
+		if (collisionChecker.PlayerEmotion(player, perfectionism))
+		{
+			App::PlaySound(".\\Sounds\\Pop.wav", false);
+			restartLevel = true;
+			TheSceneManager::Instance()->LoseLife();
+		}
+
 		if (App::GetController().CheckButton(XINPUT_GAMEPAD_A, false))
 		{
 			if (lightFuelBar->GetCurrentFuel() > 0)
@@ -94,6 +101,10 @@ void Level4::Render()
 			glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		}
 	}
+
+	int lives = TheSceneManager::Instance()->GetLivesLeft();
+	std::string livesString = "Lives: " + std::to_string(lives);
+	App::Print(100.0f, APP_INIT_WINDOW_HEIGHT - 100.0f, livesString.c_str());
 }
 
 void Level4::Shutdown()
