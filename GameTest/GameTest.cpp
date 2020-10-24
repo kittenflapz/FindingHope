@@ -8,25 +8,18 @@
 //------------------------------------------------------------------------
 #include "app\app.h"
 //------------------------------------------------------------------------
-#include "GameManager.h"
-#include "Scene.h"
-#include "LevelScene.h"
-#include "TitleScene.h"
-#include "Level1.h"
 
+#include "SceneManager.h"
 
-Scene* currentScene;
-bool gameStarted = false;
-bool level1Done = false;
-
+SceneManager* SceneManager::instance = 0;
 
 //------------------------------------------------------------------------
 // Called before first update. Do any initial setup here.
 //------------------------------------------------------------------------
 void Init()
 {
-	currentScene = new TitleScene();
-	currentScene->Init();
+	TheSceneManager::Instance()->ChangeSceneState(TITLE_SCENE);
+	TheSceneManager::Instance()->Init();
 }
 
 //------------------------------------------------------------------------
@@ -35,26 +28,28 @@ void Init()
 //------------------------------------------------------------------------
 void Update(float deltaTime)
 {
-	// This is not really how I want the scene switching to be, a singleton may be better
+	TheSceneManager::Instance()->Update(deltaTime);
 
-	if (gameStarted == false && App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
-	{
-		delete currentScene;
-		currentScene = new Level1();
-		currentScene->Init();
-		gameStarted = true;
-	}
+	//// This is not really how I want the scene switching to be, a singleton may be better
 
-	if (gameStarted == true && level1Done == true)
-	{
-		Sleep(2000);
-		delete currentScene;
-		currentScene = new TitleScene();
-		currentScene->Init();
-		gameStarted = false;
-	}
+	//if (gameStarted == false && App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
+	//{
+	//	delete currentScene;
+	//	currentScene = new Level1();
+	//	currentScene->Init();
+	//	gameStarted = true;
+	//}
 
-	currentScene->Update(deltaTime);
+	//if (gameStarted == true && level1Done == true)
+	//{
+	//	Sleep(2000);
+	//	delete currentScene;
+	//	currentScene = new TitleScene();
+	//	currentScene->Init();
+	//	gameStarted = false;
+	//}
+
+	//currentScene->Update(deltaTime);
 }
 
 //------------------------------------------------------------------------
@@ -63,10 +58,7 @@ void Update(float deltaTime)
 //------------------------------------------------------------------------
 void Render()
 {	
-	currentScene->Render();
-	
-	//std::string scoreString = std::to_string(score);
-	//App::Print(100, APP_INIT_WINDOW_HEIGHT - 100, scoreString.c_str());
+	TheSceneManager::Instance()->Render();
 }
 //------------------------------------------------------------------------
 // Add your shutdown code here. Called when the APP_QUIT_KEY is pressed.
@@ -74,6 +66,5 @@ void Render()
 //------------------------------------------------------------------------
 void Shutdown()
 {	
-	// ########## CLEAN STUFF UP HERE, DELETE GAMEOBJECTS ETC #########################
-	currentScene->Shutdown();
+	TheSceneManager::Instance()->Shutdown();
 }

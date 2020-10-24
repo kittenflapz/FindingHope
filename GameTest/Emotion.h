@@ -28,6 +28,7 @@ public:
 	void SetSpeed(float speed);
 	void SetVelocity(float x, float y);
 	void SetColor(float r, float g, float b);
+	void SetPulseRate(float pulseRate);
 
 	void Pulse(float deltaTime);
 

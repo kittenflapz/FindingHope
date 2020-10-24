@@ -77,3 +77,8 @@ void Emotion::SetColor(float r, float g, float b)
 	this->g = g;
 	this->b = b;
 }
+
+void Emotion::SetPulseRate(float pulseRate)
+{
+	pulser = pulseRate;
+}

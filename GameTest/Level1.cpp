@@ -100,7 +100,7 @@ void Level1::Render()
 	{
 		std::string scoreString = "Hope: You've found me! Thank you!";
 		App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, scoreString.c_str());
-		level1Done = true;
+		//level1Done = true;
 	}
 	else
 	{

@@ -1,5 +1,4 @@
 #include "Scene.h"
-#include "GameManager.h"
 
 #ifndef TITLESCENE_H
 #define TITLESCENE_H
