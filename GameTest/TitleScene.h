@@ -11,6 +11,9 @@ public:
 	void Update(float deltaTime) override;
 	void Render() override;
 	void Shutdown() override;
+private:
+	Light* light;
+	CSimpleSprite* titleText;
 };
 
 #endif //TITLESCENE_H

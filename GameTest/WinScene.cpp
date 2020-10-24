@@ -3,8 +3,9 @@
 
 void WinScene::Init()
 {
-	winString = "YOU WON";
-	playAgainString = "You found so much hope today. That's awesome. Press A to do it again.";
+	winText = App::CreateSprite(".\\TestData\\winText.bmp", 1, 1);
+	winText->SetPosition(APP_INIT_WINDOW_WIDTH * 0.5f, APP_INIT_WINDOW_HEIGHT * 0.5f);
+	winText->SetScale(3.0f);
 	light = new Light(512.0f, 384.0f);
 	light->Init();
 	glClearColor(0.074f, 0.035f, 0.07f, 1.0f);
@@ -20,9 +21,8 @@ void WinScene::Update(float deltaTime)
 
 void WinScene::Render()
 {
-	App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.6f, winString.c_str());
-	App::Print(APP_INIT_WINDOW_WIDTH * 0.05f, APP_INIT_WINDOW_HEIGHT * 0.5f, playAgainString.c_str());
 	light->Render();
+	winText->Draw();
 }
 
 void WinScene::Shutdown()

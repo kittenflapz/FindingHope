@@ -14,9 +14,9 @@ public:
 	void Shutdown() override;
 
 private:
-	std::string gameOverString;
-	std::string playAgainString;
+
 	Light* light;
+	CSimpleSprite* gameOverText;
 
 };
 

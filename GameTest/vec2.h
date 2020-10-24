@@ -85,16 +85,6 @@ public:
 		this->y = y;
 	}
 
-	void rotate(double deg) {
-		double theta = deg / 180.0 * M_PI;
-		double c = cos(theta);
-		double s = sin(theta);
-		double tx = x * c - y * s;
-		double ty = x * s + y * c;
-		x = tx;
-		y = ty;
-	}
-
 	vec2& normalize() {
 		if (length() == 0) return *this;
 		*this *= (1.0 / length());
@@ -108,31 +98,7 @@ public:
 	float length() const {
 		return std::sqrt(x * x + y * y);
 	}
-	void truncate(double length) {
-		double angle = atan2f(y, x);
-		x = length * cos(angle);
-		y = length * sin(angle);
-	}
-
-	vec2 ortho() const {
-		return vec2(y, -x);
-	}
-
-	static float dot(vec2 v1, vec2 v2) {
-		return v1.x * v2.x + v1.y * v2.y;
-	}
-	static float cross(vec2 v1, vec2 v2) {
-		return (v1.x * v2.y) - (v1.y * v2.x);
-	}
-
-	void Print() {
-
-	}
-
 };
-
-typedef vec2<float> vec2f;
-typedef vec2<double> vec2d;
 
 
 #endif

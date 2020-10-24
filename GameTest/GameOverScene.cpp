@@ -3,8 +3,9 @@
 
 void GameOverScene::Init()
 {
-	gameOverString = "GAME OVER";
-	playAgainString = "Sometimes it's a little harder to find hope, and that's okay! Press A to try again.";
+	gameOverText = App::CreateSprite(".\\TestData\\gameOverText.bmp", 1, 1);
+	gameOverText->SetPosition(APP_INIT_WINDOW_WIDTH * 0.5f, APP_INIT_WINDOW_HEIGHT * 0.5f);
+	gameOverText->SetScale(3.0f);
 	light = new Light(512.0f, 384.0f);
 	light->Init();
 	glClearColor(0.074f, 0.035f, 0.07f, 1.0f);
@@ -21,8 +22,7 @@ void GameOverScene::Update(float deltaTime)
 
 void GameOverScene::Render()
 {
-	App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.6f, gameOverString.c_str());
-	App::Print(APP_INIT_WINDOW_WIDTH * 0.05f, APP_INIT_WINDOW_HEIGHT * 0.5f, playAgainString.c_str());
+	gameOverText->Draw();
 	light->Render();
 }
 

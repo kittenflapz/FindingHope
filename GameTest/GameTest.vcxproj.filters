@@ -23,9 +23,6 @@
     <ClCompile Include="App\TextureLoader.cpp">
       <Filter>API</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionChecker.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Emotion.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
@@ -59,9 +56,6 @@
     <ClCompile Include="Fear.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="AIController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Level3.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
@@ -79,6 +73,12 @@
     </ClCompile>
     <ClCompile Include="WinScene.cpp">
       <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="AIController.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionChecker.cpp">
+      <Filter>Source Files\Misc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -108,12 +108,6 @@
     </ClInclude>
     <ClInclude Include="App\TextureLoader.h">
       <Filter>API</Filter>
-    </ClInclude>
-    <ClInclude Include="vec2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionChecker.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Emotion.h">
       <Filter>Header Files\GameObjects</Filter>
@@ -148,17 +142,11 @@
     <ClInclude Include="Light.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Level2.h">
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Fear.h">
       <Filter>Header Files\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="AIController.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Level3.h">
       <Filter>Header Files\Scenes</Filter>
@@ -174,6 +162,18 @@
     </ClInclude>
     <ClInclude Include="WinScene.h">
       <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="AIController.h">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionChecker.h">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="vec2.h">
+      <Filter>Header Files\Misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +200,12 @@
     </Filter>
     <Filter Include="Header Files\Scenes">
       <UniqueIdentifier>{84a3b71f-8ee3-4563-866c-b5bac9f5380d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Misc">
+      <UniqueIdentifier>{28cd0ffd-1583-4b73-9ecd-be242ab0c912}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Misc">
+      <UniqueIdentifier>{f2404069-119a-4986-90a3-35bdc0ad6380}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

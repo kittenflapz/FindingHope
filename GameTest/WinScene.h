@@ -14,10 +14,8 @@ public:
 	void Shutdown() override;
 
 private:
-	std::string winString;
-	std::string playAgainString;
 	Light* light;
-
+	CSimpleSprite* winText;
 };
 
 #endif // WINSCENE_H
