@@ -5,8 +5,7 @@
 
 // Level 2!
 
-class Level2 :
-	public LevelScene
+class Level2 : public LevelScene
 {
 public:
 	void Init() override;
@@ -19,9 +18,11 @@ private:
 	LightFuelBar* lightFuelBar;
 	Light* light;
 
+	std::vector<Fear*> fears;
+
 	CollisionChecker collisionChecker;
 	bool hasWon;
-	bool gameOver; // this might go in LevelScene
+	bool restartLevel; // this might go in LevelScene
 	vec2<float> startPosition;
 };
 

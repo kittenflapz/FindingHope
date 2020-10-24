@@ -3,7 +3,7 @@
 #ifndef GRIEF_H
 #define GRIEF_H
 
-// 'Griefs', the enemy
+// 'Griefs', an enemy type
 
 class Grief :
 	public Emotion

@@ -16,11 +16,20 @@ void Level2::Init()
 	light = new Light(512.0f, 384.0f);
 	light->Init();
 
+
+
+	// Enemies
+	Fear* fear1 = new Fear(156.0f, 300.0f, 20.0f, 0.5f, vec2<float> (156.0f, 300.0f), vec2<float>(856.0f, 300.0f));
+	Fear* fear2 = new Fear(856.0f, 550.0f, 20.0f, 0.5f, vec2<float>(856.0f, 550.0f), vec2<float>(156.0f, 550.0f));
+
+	fears.push_back(fear1);
+	fears.push_back(fear2);
+
 }
 
 void Level2::Update(float deltaTime)
 {
-	if (!gameOver)
+	if (!restartLevel)
 	{
 		player->Update(deltaTime);
 		hope->Update(deltaTime);
@@ -38,15 +47,16 @@ void Level2::Update(float deltaTime)
 			SetLightOn(false);
 		}
 
-		/*for (int i = 0; i < griefs.size(); i++)
+		for (int i = 0; i < fears.size(); i++)
 		{
-			griefs[i]->Update(deltaTime);
-			if (collisionChecker.PlayerEmotion(player, griefs[i]))
+			fears[i]->Patrol();
+			fears[i]->Update(deltaTime);
+			if (collisionChecker.PlayerEmotion(player, fears[i]))
 			{
 				App::PlaySound(".\\Sounds\\Pop.wav", false);
-				gameOver = true;
+				restartLevel = true;
 			}
-		}*/
+		}
 
 		if (collisionChecker.PlayerEmotion(player, hope) && !hasWon)
 		{
@@ -58,7 +68,7 @@ void Level2::Update(float deltaTime)
 	else
 	{
 		player->SetPosition(startPosition.x, startPosition.y);
-		gameOver = false;
+		restartLevel = false;
 	}
 }
 
@@ -80,10 +90,10 @@ void Level2::Render()
 			lightFuelBar->Render();
 			glClearColor(0.074f, 0.035f, 0.07f, 1.0f);
 
-		/*	for (int i = 0; i < griefs.size(); i++)
+			for (int i = 0; i < fears.size(); i++)
 			{
-				griefs[i]->Render();
-			}*/
+				fears[i]->Render();
+			}
 		}
 		else
 		{
@@ -96,10 +106,10 @@ void Level2::Render()
 void Level2::Shutdown()
 {
 	delete player;
-	//for (int i = 0; i < griefs.size(); i++)
-	//{
-	//	delete griefs[i];
-	//}
+	for (int i = 0; i < fears.size(); i++)
+	{
+		delete fears[i];
+	}
 	delete hope;
 	delete light;
 }

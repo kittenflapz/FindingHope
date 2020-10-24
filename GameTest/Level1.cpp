@@ -54,7 +54,7 @@ void Level1::Init()
 
 void Level1::Update(float deltaTime)
 {
-	if (!gameOver)
+	if (!restartLevel)
 	{
 		player->Update(deltaTime);
 		hope->Update(deltaTime);
@@ -78,7 +78,7 @@ void Level1::Update(float deltaTime)
 			if (collisionChecker.PlayerEmotion(player, griefs[i]))
 			{
 				App::PlaySound(".\\Sounds\\Pop.wav", false);
-				gameOver = true;
+				restartLevel = true;
 			}
 		}
 
@@ -92,7 +92,7 @@ void Level1::Update(float deltaTime)
 	else
 	{
 		player->SetPosition(startPosition.x, startPosition.y);
-		gameOver = false;
+		restartLevel = false;
 	}
 }
 

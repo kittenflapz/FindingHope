@@ -28,6 +28,7 @@ void Emotion::Init()
 void Emotion::Update(float deltaTime)
 {
 	Pulse(deltaTime);
+	position += velocity * deltaTime * speed;
 }
 
 void Emotion::Pulse(float deltaTime)

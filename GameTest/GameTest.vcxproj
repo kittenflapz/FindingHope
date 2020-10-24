@@ -176,6 +176,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AIController.h" />
     <ClInclude Include="App\app.h" />
     <ClInclude Include="App\AppSettings.h" />
     <ClInclude Include="App\main.h" />
@@ -185,6 +186,7 @@
     <ClInclude Include="App\TextureLoader.h" />
     <ClInclude Include="Emotion.h" />
     <ClInclude Include="CollisionChecker.h" />
+    <ClInclude Include="Fear.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Grief.h" />
     <ClInclude Include="Hope.h" />
@@ -202,6 +204,7 @@
     <ClInclude Include="vec2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AIController.cpp" />
     <ClCompile Include="App\app.cpp" />
     <ClCompile Include="App\main.cpp" />
     <ClCompile Include="App\SimpleController.cpp" />
@@ -210,6 +213,7 @@
     <ClCompile Include="App\TextureLoader.cpp" />
     <ClCompile Include="Emotion.cpp" />
     <ClCompile Include="CollisionChecker.cpp" />
+    <ClCompile Include="Fear.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameTest.cpp" />
     <ClCompile Include="Grief.cpp" />

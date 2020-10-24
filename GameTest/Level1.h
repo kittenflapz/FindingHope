@@ -24,7 +24,7 @@ private:
 
 	CollisionChecker collisionChecker;
 	bool hasWon;
-	bool gameOver; 
+	bool restartLevel; 
 	vec2<float> startPosition;
 
 	// For ending the level gracefully
