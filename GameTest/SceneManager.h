@@ -5,6 +5,7 @@
 #include "Level2.h"
 #include "Level3.h"
 #include "Level4.h"
+#include "Level5.h"
 #include "GameOverScene.h"
 #include "WinScene.h"
 
@@ -54,6 +55,11 @@ public:
 		case SceneState::LEVEL4_SCENE:
 			Shutdown();
 			currentScene = new Level4();
+			Init();
+			break;
+		case SceneState::LEVEL5_SCENE:
+			Shutdown();
+			currentScene = new Level5();
 			Init();
 			break;
 		case SceneState::GAMEOVER_SCENE:

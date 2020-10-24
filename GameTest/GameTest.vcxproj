@@ -177,6 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AIController.h" />
+    <ClInclude Include="Anxiety.h" />
     <ClInclude Include="App\app.h" />
     <ClInclude Include="App\AppSettings.h" />
     <ClInclude Include="App\main.h" />
@@ -195,6 +196,7 @@
     <ClInclude Include="Level2.h" />
     <ClInclude Include="Level3.h" />
     <ClInclude Include="Level4.h" />
+    <ClInclude Include="Level5.h" />
     <ClInclude Include="LevelScene.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LightFuelBar.h" />
@@ -210,6 +212,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AIController.cpp" />
+    <ClCompile Include="Anxiety.cpp" />
     <ClCompile Include="App\app.cpp" />
     <ClCompile Include="App\main.cpp" />
     <ClCompile Include="App\SimpleController.cpp" />
@@ -228,6 +231,7 @@
     <ClCompile Include="Level2.cpp" />
     <ClCompile Include="Level3.cpp" />
     <ClCompile Include="Level4.cpp" />
+    <ClCompile Include="Level5.cpp" />
     <ClCompile Include="LevelScene.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LightFuelBar.cpp" />

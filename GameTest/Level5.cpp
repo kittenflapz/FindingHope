@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "Level4.h"
+#include "Level5.h"
 
-void Level4::Init()
+void Level5::Init()
 {
 
 	LevelScene::Init();
@@ -10,7 +10,7 @@ void Level4::Init()
 	player = new Player(startPosition.x, startPosition.y, 50.0f, 50.0f, 0.05f);
 
 	// Goal
-	hope = new Hope(APP_INIT_WINDOW_WIDTH * 0.5f,  100.0f, 20.0f, 0.5f);
+	hope = new Hope(APP_INIT_WINDOW_WIDTH * 0.5f, 100.0f, 20.0f, 0.5f);
 
 	// UI
 	lightFuelBar = new LightFuelBar(APP_INIT_WINDOW_WIDTH - 50.0f, APP_INIT_WINDOW_HEIGHT * 0.33f, 20.0f, APP_INIT_WINDOW_HEIGHT * 0.33f);
@@ -18,23 +18,21 @@ void Level4::Init()
 	light->Init();
 
 	// Enemies
-	perfectionism = new Perfectionism(APP_INIT_WINDOW_WIDTH * 0.5f, APP_INIT_WINDOW_HEIGHT * 0.5, 20.0f, 0.5f);
-	perfectionism->SetPatrolPoints({ vec2<float>(200.0f, 568.0f), vec2<float>(200.0f, 200.0f), vec2<float>(824.0f, 200.0f), vec2<float>(824.0f, 568.0f) });
-
+	anxiety = new Anxiety(400.0f, 400.0f, 20.0f, 0.2f, vec2<float>(450.0f, 400.0f), vec2<float>(650.0f, 400.0f));
+	
 }
 
-void Level4::Update(float deltaTime)
+void Level5::Update(float deltaTime)
 {
 	LevelScene::Update(deltaTime);
 	if (!restartLevel)
 	{
 		player->Update(deltaTime);
 		hope->Update(deltaTime);
+		anxiety->PatrolRandomPoints();
+		anxiety->Update(deltaTime);
 
-		perfectionism->PatrolInLoop();
-		perfectionism->Update(deltaTime);
-
-		if (collisionChecker.PlayerEmotion(player, perfectionism))
+		if (collisionChecker.PlayerEmotion(player, anxiety))
 		{
 			App::PlaySound(".\\Sounds\\Pop.wav", false);
 			restartLevel = true;
@@ -69,7 +67,7 @@ void Level4::Update(float deltaTime)
 	}
 }
 
-void Level4::Render()
+void Level5::Render()
 {
 	if (hasWon)
 	{
@@ -81,7 +79,7 @@ void Level4::Render()
 		}
 		else
 		{
-			TheSceneManager::Instance()->ChangeSceneState(SceneState::LEVEL5_SCENE);
+			TheSceneManager::Instance()->ChangeSceneState(SceneState::WIN_SCENE);
 		}
 
 	}
@@ -91,7 +89,7 @@ void Level4::Render()
 		{
 			player->Render();
 			hope->Render();
-			perfectionism->Render();
+			anxiety->Render();
 			light->Render();
 			lightFuelBar->Render();
 			glClearColor(0.074f, 0.035f, 0.07f, 1.0f);
@@ -106,10 +104,10 @@ void Level4::Render()
 	LevelScene::Render();
 }
 
-void Level4::Shutdown()
+void Level5::Shutdown()
 {
 	delete player;
 	delete hope;
 	delete light;
-	delete perfectionism;
+	delete anxiety;
 }
