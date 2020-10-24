@@ -19,6 +19,7 @@ void Level5::Init()
 
 	// Enemies
 	anxiety = new Anxiety(400.0f, 400.0f, 20.0f, 0.2f, vec2<float>(450.0f, 400.0f), vec2<float>(650.0f, 400.0f));
+	helplessness = new Helplessness(300.0f, 300.0f, 20.0f, 0.4f);
 	
 }
 
@@ -29,8 +30,11 @@ void Level5::Update(float deltaTime)
 	{
 		player->Update(deltaTime);
 		hope->Update(deltaTime);
+
 		anxiety->PatrolRandomPoints();
 		anxiety->Update(deltaTime);
+		helplessness->FollowPlayerIfClose(player->GetPosition());
+		helplessness->Update(deltaTime);
 
 		if (collisionChecker.PlayerEmotion(player, anxiety))
 		{
@@ -90,6 +94,7 @@ void Level5::Render()
 			player->Render();
 			hope->Render();
 			anxiety->Render();
+			helplessness->Render();
 			light->Render();
 			lightFuelBar->Render();
 			glClearColor(0.074f, 0.035f, 0.07f, 1.0f);
@@ -110,4 +115,5 @@ void Level5::Shutdown()
 	delete hope;
 	delete light;
 	delete anxiety;
+	delete helplessness;
 }

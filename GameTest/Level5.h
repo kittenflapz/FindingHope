@@ -19,6 +19,7 @@ private:
 	Light* light;
 
 	Anxiety* anxiety;
+	Helplessness* helplessness;
 
 	CollisionChecker collisionChecker;
 	bool hasWon;

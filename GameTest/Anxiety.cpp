@@ -23,6 +23,8 @@ void Anxiety::PatrolRandomPoints()
 	{
 		targetPoint = patrolPointB;
 		patrolPointA += GetRandomFloatPair();
+
+
 	}
 
 	if (aiController.WithinDistance(GetPosition(), patrolPointB, 10.0f))
