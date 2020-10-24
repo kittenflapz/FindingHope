@@ -1,11 +1,11 @@
 #include "LevelScene.h"
 
-#ifndef LEVEL2_H
-#define LEVEL2_H
+#ifndef LEVEL3_H
+#define LEVEL3_H
 
-// Level 2!
+// Level 3!
 
-class Level2 : public LevelScene
+class Level3 : public LevelScene
 {
 public:
 	void Init() override;
@@ -19,18 +19,12 @@ private:
 	Light* light;
 
 	std::vector<Fear*> fears;
-
+	std::vector<Grief*> griefs;
 
 	CollisionChecker collisionChecker;
 	bool hasWon;
 	bool restartLevel; // this might go in LevelScene
 	vec2<float> startPosition;
-
-	// For ending the level gracefully
-	float timeToWaitOnWinMessage;
-	float timerForWinMessage;
-
 };
 
-#endif // LEVEL2_H
-
+#endif // LEVEL3_H

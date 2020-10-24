@@ -76,9 +76,17 @@ void Level2::Render()
 {
 	if (hasWon)
 	{
-		std::string scoreString = "Hope: You've found me! Thank you!";
-		App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, scoreString.c_str());
-		//level1Done = true;
+		if (timerForWinMessage < timeToWaitOnWinMessage)
+		{
+			std::string scoreString = "Hope: You've found me! Thank you!";
+			App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, scoreString.c_str());
+			timerForWinMessage++;
+		}
+		else
+		{
+			TheSceneManager::Instance()->ChangeSceneState(SceneState::LEVEL3_SCENE);
+		}
+
 	}
 	else
 	{

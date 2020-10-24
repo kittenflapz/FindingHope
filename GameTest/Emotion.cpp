@@ -94,13 +94,6 @@ void Emotion::Render()
 	}
 }
 
-//	// Draw left eye
-//	App::DrawLine(position.x - 7.5f, position.y - 1.0f, position.x - 0.5f, position.y - 0.5f, r, g, b);
-//
-//	// Draw right eye
-//	App::DrawLine(position.x + 7.5f, position.y - 1.0f, position.x + 0.5f, position.y - 0.5f, r, g, b);
-//}
-
 void Emotion::SetPosition(float x, float y)
 {
 
