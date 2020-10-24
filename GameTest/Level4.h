@@ -1,11 +1,11 @@
 #include "LevelScene.h"
 
-#ifndef LEVEL3_H
-#define LEVEL3_H
+#ifndef LEVEL4_H
+#define LEVEL4_H
 
-// Level 3!
+// Level 4!
 
-class Level3 : public LevelScene
+class Level4 : public LevelScene
 {
 public:
 	void Init() override;
@@ -18,8 +18,7 @@ private:
 	LightFuelBar* lightFuelBar;
 	Light* light;
 
-	std::vector<Fear*> fears;
-	std::vector<Grief*> griefs;
+	Perfectionism *perfectionism;
 
 	CollisionChecker collisionChecker;
 	bool hasWon;
@@ -31,4 +30,4 @@ private:
 	float timerForWinMessage;
 };
 
-#endif // LEVEL3_H
+#endif // LEVEL4_H

@@ -3,6 +3,7 @@
 
 void Level3::Init()
 {
+	hasWon = false;
 	// Player
 	startPosition = vec2<float>(APP_INIT_WINDOW_WIDTH * 0.5f, 100.0f);
 	player = new Player(startPosition.x, startPosition.y, 50.0f, 50.0f, 0.05f);
@@ -115,9 +116,17 @@ void Level3::Render()
 {
 	if (hasWon)
 	{
-		std::string scoreString = "Hope: You've found me! Thank you!";
-		App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, scoreString.c_str());
-		//level1Done = true;
+		if (timerForWinMessage < timeToWaitOnWinMessage)
+		{
+			std::string scoreString = "Hope: You've found me! Thank you!";
+			App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, scoreString.c_str());
+			timerForWinMessage++;
+		}
+		else
+		{
+			TheSceneManager::Instance()->ChangeSceneState(SceneState::LEVEL4_SCENE);
+		}
+
 	}
 	else
 	{

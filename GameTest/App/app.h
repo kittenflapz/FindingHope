@@ -15,6 +15,7 @@
 #include "../Grief.h"
 #include "../Fear.h"
 #include "../Hope.h"
+#include "../Perfectionism.h"
 #include "../AIController.h"
 
 #include "../LightFuelBar.h"
