@@ -11,7 +11,7 @@ void Level8::Init()
 	CreatePlayer();
 
 	// Goal
-	SetHopeStartPosition(vec2<float>(512.0f, 150.0f));
+	SetHopeStartPosition(vec2<float>(312.0f, 150.0f));
 	CreateHope();
 
 	// Enemies
@@ -31,10 +31,10 @@ void Level8::Init()
 		AddToEnemyList(grief);
 	}
 
-	// Helplessness
+	// Fear
 
-	Helplessness* helplessness = new Helplessness(870.0f, 700.0f, 20.0f, 0.3f);
-	AddToEnemyList(helplessness);
+	Fear* fear = new Fear(870.0f, 100.0f, 20.0f, 0.3f, vec2<float>(870.0f, 150.0f), vec2<float>(470.0f, 150.0f));
+	AddToEnemyList(fear);
 
 	LevelScene::Init();
 

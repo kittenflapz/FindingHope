@@ -31,7 +31,7 @@ void Level10::Init()
 	for (int i = 1; i < 5; i++)
 	{
 		float angle = 2.0f * M_PI / 20;
-		int radius = 70.0f * i;
+		int radius = 60.0f * i;
 		for (int j = 0; j < 20 + 1; j++)
 		{
 			if (j > 0)

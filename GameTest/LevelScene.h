@@ -47,10 +47,18 @@ private:
 	CSimpleSprite* flameSprites[3];
 	Typewriter* typewriter;
 	std::string chapterIntroText;
+	std::string outOfFuelString;
+	std::string winString;
 
 	// For ending the level gracefully
 	float timeToWaitOnWinMessage;
 	float timerForWinMessage;
+
+	// For resetting after out of fuel
+	float levelResetTime;
+	float outOfFuelTimer;
+	bool showFuelString;
+
 
 	// GameObjects
 	LightFuelBar* lightFuelBar;

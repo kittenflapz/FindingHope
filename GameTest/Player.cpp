@@ -39,7 +39,7 @@ void Player::CheckBounds()
 	}
 	else if (position.x - scale.x < 0)
 	{
-		position.x = APP_INIT_WINDOW_WIDTH + scale.x;
+		position.x = scale.x;
 	}
 
 	if (position.y + scale.y > APP_INIT_WINDOW_HEIGHT)
@@ -48,7 +48,7 @@ void Player::CheckBounds()
 	}
 	if (position.y - scale.y < 0)
 	{
-		position.y = APP_INIT_WINDOW_HEIGHT - scale.y;
+		position.y = scale.y;
 	}
 }
 

@@ -7,14 +7,20 @@ void LevelScene::Init()
 	for (int i = 0; i < TheSceneManager::Instance()->GetLivesLeft(); i++)
 	{
 		flameSprites[i] = App::CreateSprite(".\\TestData\\flame.bmp", 1, 1);
-		flameSprites[i]->SetPosition(30.0f + (i * 30.0f), 688.0f);
+		flameSprites[i]->SetPosition(35.0f + (i * 40.0f), 720.0f);
 		flameSprites[i]->SetScale(2.0f); 
-		flameSprites[i]->SetColor(1.0f, 1.0f, 1.0f, 0.5f);
+		flameSprites[i]->SetColor(0.8f, 0.8f, 0.8f, 0.5f);
 	}
 	typewriter = new Typewriter();
 	typewriter->PopulateQueue(chapterIntroText);
+
 	timeToWaitOnWinMessage = 200.0f;
 	timerForWinMessage = 0.0f;
+	winString = "Hope: You've found me! Thank you!";
+	outOfFuelString = "You're out of fuel! Chapter restarting...";
+
+	levelResetTime = 100.0f;
+	outOfFuelTimer = 0.0f;
 
 	lightFuelBar = new LightFuelBar(APP_INIT_WINDOW_WIDTH - 50.0f, APP_INIT_WINDOW_HEIGHT * 0.33f, 20.0f, APP_INIT_WINDOW_HEIGHT * 0.33f);
 	light = new Light(512.0f, 384.0f);
@@ -29,17 +35,33 @@ void LevelScene::Update(float deltaTime)
 	}
 	if (!hasWon)
 	{
-		if (App::GetController().CheckButton(XINPUT_GAMEPAD_A, false))
+		if (lightFuelBar->GetCurrentFuel() > 0)
 		{
-			if (lightFuelBar->GetCurrentFuel() > 0)
+			if (App::GetController().CheckButton(XINPUT_GAMEPAD_A, false))
 			{
 				SetLightOn(true);
 				lightFuelBar->DecrementFuel();
+			}
+			else
+			{
+				SetLightOn(false);
 			}
 		}
 		else
 		{
 			SetLightOn(false);
+			if (outOfFuelTimer < levelResetTime)
+			{
+				showFuelString = true;
+				outOfFuelTimer++;
+			}
+			else
+			{
+				showFuelString = false;
+				App::PlaySound(".\\Sounds\\Pop.wav", false);
+				RestartLevel();
+				TheSceneManager::Instance()->LoseLife();
+			}
 		}
 
 
@@ -81,8 +103,8 @@ void LevelScene::Render()
 	{
 		if (timerForWinMessage < timeToWaitOnWinMessage)
 		{
-			std::string scoreString = "Hope: You've found me! Thank you!";
-			App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, scoreString.c_str());
+		
+			App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, winString.c_str(), 1.0f, 1.0f, 1.0f, GLUT_BITMAP_8_BY_13);
 			timerForWinMessage++;
 		}
 		else
@@ -111,6 +133,11 @@ void LevelScene::Render()
 			lightFuelBar->Render();
 			glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		}
+	}
+
+	if (showFuelString)
+	{
+		App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, outOfFuelString.c_str(), 1.0f, 1.0f, 1.0f, GLUT_BITMAP_8_BY_13);
 	}
 
 	// Render sprites representing lives left
