@@ -15,7 +15,7 @@ void Prologue::Init()
 	CreateHope();
 
 	// Enemies
-	Grief* grief = new Grief(106.0f, 100.0f, 20.0f, 0.5f);
+	Grief* grief = new Grief(APP_INIT_WINDOW_WIDTH * 0.5f, APP_INIT_WINDOW_HEIGHT * 0.5f, 20.0f, 0.5f);
 	AddToEnemyList(grief);
 
 	LevelScene::Init();

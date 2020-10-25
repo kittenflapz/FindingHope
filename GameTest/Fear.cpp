@@ -8,7 +8,7 @@ Fear::Fear(float x, float y, float radius, float speed, vec2<float> patrolPointA
 	SetSpeed(0.2f);
 	this->patrolPointA = patrolPointA;
 	this->patrolPointB = patrolPointB;
-	targetPoint = patrolPointA;
+	targetPoint = patrolPointB;
 }
 
 Fear::~Fear()
