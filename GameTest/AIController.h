@@ -1,6 +1,6 @@
 #include "vec2.h"
 
-// Helper stuff for moving NPCs. more like AIHelper since the 'control' part is happening in each enemy 
+// Helper stuff for moving NPCs. More like AIHelper honestly
 #ifndef AICONTROLLER_H
 #define AICONTROLLER_H
 class AIController

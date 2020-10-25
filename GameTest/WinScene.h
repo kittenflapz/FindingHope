@@ -3,7 +3,7 @@
 #ifndef WINSCENE_H
 #define WINSCENE_H
 
-// The game over scene
+// The win scene
 class WinScene :
 	public Scene
 {

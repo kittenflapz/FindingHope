@@ -18,7 +18,7 @@ void Level3::Init()
 	for (int i = 0; i < 6; i++)
 	{
 		// They'll move randomly, so no need to place them super carefully. Just start middle left and end middle right.
-		Anxiety* anxiety = new Anxiety(50.0f + (170.05f * i), 400.0f, 20.0f, 0.5f, vec2<float>(50.0f + (170.05f * i), 400.0f), vec2<float>(50.0f + (170.05f * i), 700.0f));
+		Anxiety* anxiety = new Anxiety(50.0f + (170.05f * i), 400.0f, 20.0f, 0.2f, vec2<float>(50.0f + (170.05f * i), 400.0f), vec2<float>(50.0f + (170.05f * i), 700.0f));
 		AddToEnemyList(anxiety);
 	}
 

@@ -82,7 +82,7 @@ void LevelScene::Update(float deltaTime)
 				}
 			}
 
-			if (GetCollisionChecker().PlayerEmotion(GetPlayer(), GetHope()) && HasWon() == false || App::GetController().CheckButton(XINPUT_GAMEPAD_B, false))
+			if (GetCollisionChecker().PlayerEmotion(GetPlayer(), GetHope()) && HasWon() == false)
 			{
 				App::PlaySound(".\\Sounds\\Bells.wav", false);
 				Win();
@@ -101,6 +101,7 @@ void LevelScene::Render()
 {
 	if (hasWon)
 	{
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		if (timerForWinMessage < timeToWaitOnWinMessage)
 		{
 		
@@ -116,6 +117,11 @@ void LevelScene::Render()
 	}
 	else
 	{
+		if (showFuelString)
+		{
+			App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, outOfFuelString.c_str(), 1.0f, 1.0f, 1.0f, GLUT_BITMAP_8_BY_13);
+		}
+
 		if (LightIsOn())
 		{
 			player->Render();
@@ -135,10 +141,6 @@ void LevelScene::Render()
 		}
 	}
 
-	if (showFuelString)
-	{
-		App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, outOfFuelString.c_str(), 1.0f, 1.0f, 1.0f, GLUT_BITMAP_8_BY_13);
-	}
 
 	// Render sprites representing lives left
 	for (int i = 0; i < TheSceneManager::Instance()->GetLivesLeft(); i++)

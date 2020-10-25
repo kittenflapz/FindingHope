@@ -8,6 +8,10 @@ Typewriter::Typewriter()
 	stringToPrint = "";
 }
 
+Typewriter::~Typewriter()
+{
+}
+
 void Typewriter::PopulateQueue(std::string str)
 {
 	for (char c : str)

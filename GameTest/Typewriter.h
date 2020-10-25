@@ -1,5 +1,7 @@
 #include "App/app.h"
 
+// Small class for printing text one char at a time like a typewriter
+
 #ifndef TYPEWRITER_H
 #define TYPEWRITER_H
 class Typewriter

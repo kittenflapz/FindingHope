@@ -53,7 +53,6 @@ namespace App
 
 	void DrawRect(float sx, float sy, float ex, float ey, float r, float g, float b);
 	void DrawRectOutline(float sx, float sy, float ex, float ey, float r, float g, float b);
-	void DrawCircle(float x, float y, float radius, float r, float g, float b);
 	void DrawPolygonOutline(int x, int y, float radius, float numPoints, float r, float g, float b);
 
 	//-------------------------------------------------------------------------------------------

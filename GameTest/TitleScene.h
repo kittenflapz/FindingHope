@@ -2,6 +2,7 @@
 
 #ifndef TITLESCENE_H
 #define TITLESCENE_H
+
 // The title scene
 class TitleScene :
 	public Scene

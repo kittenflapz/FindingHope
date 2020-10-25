@@ -3,7 +3,7 @@
 #ifndef PROLOGUE_H
 #define PROLOGUE_H
 
-// Level 1!
+// Prologue/tutorial level (also The Debugging Colliseum)
 
 class Prologue :
 	public LevelScene

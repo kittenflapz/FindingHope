@@ -32,23 +32,6 @@ namespace App
 
 
 	// Added stuff
-	void DrawCircle(float x, float y, float radius, float r, float g, float b)
-	{
-	#if APP_USE_VIRTUAL_RES		
-		APP_VIRTUAL_TO_NATIVE_COORDS(x, y);
-	#endif
-		const unsigned int triangles = 20; // number of triangles
-		const float twoPi = 2.0f * 3.14159f;
-		glBegin(GL_TRIANGLE_FAN);
-		glColor3f(r, g, b);
-		glVertex2f(x, y); 
-		float delta = twoPi / triangles;
-		for (unsigned int i = 0; i <= triangles; i++)
-			glVertex2f(x + ((radius * 0.05f) * cos(i * delta)),
-				y + ((radius * 0.05f) * sin(i * delta)));
-		glEnd();
-	}
-
 	void DrawPolygonOutline(int cx, int cy, float radius, float numPoints, float r, float g, float b)
 	{
 		float angle = 2.0f * M_PI / numPoints;

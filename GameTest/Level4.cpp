@@ -17,7 +17,7 @@ void Level4::Init()
 	// Enemies
 
 	// Patrolling in square
-	std::list<vec2<float>> patrolPoints = { vec2<float>(150.0f, 550.0f), vec2<float>(150.0f, 250.0f), vec2<float>(750.0f, 250.0f), vec2<float>(750.0f, 550.0f) };
+	std::list<vec2<float>> patrolPoints = { vec2<float>(295.0f, 555.0f), vec2<float>(295.0f, 245.0f), vec2<float>(695.0f, 245.0f), vec2<float>(695.0f, 555.0f) };
 	Perfectionism* perfectionism = new Perfectionism(512.0f, 600.0f, 20.0f, 0.4f);
 	perfectionism->SetPatrolPoints(patrolPoints);
 	AddToEnemyList(perfectionism);
@@ -25,7 +25,7 @@ void Level4::Init()
 	// Patrolling in circle
 	patrolPoints.clear();
 	float angle = 2.0f * M_PI / 20;
-	int radius = 100;
+	int radius = 120;
 	for (int i = 0; i < 20 + 1; i++)
 	{
 		if (i > 0)
@@ -39,7 +39,7 @@ void Level4::Init()
 
 	// Patrolling in triangle
 	patrolPoints.clear();
-	patrolPoints = { vec2<float>(512.0f, 400.0f), vec2<float>(482.0f, 360.0f), vec2<float>(542.0f, 360.0f) };
+	patrolPoints = { vec2<float>(512.0f, 420.0f), vec2<float>(472.0f, 340.0f), vec2<float>(552.0f, 340.0f) };
 	perfectionism = new Perfectionism(512.0f, 384.0f, 20.0f, 0.4f);
 	perfectionism->SetPatrolPoints(patrolPoints);
 	AddToEnemyList(perfectionism);
