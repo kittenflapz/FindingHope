@@ -7,6 +7,11 @@
 #include "Level3.h"
 #include "Level4.h"
 #include "Level5.h"
+#include "Level6.h"
+//#include "Level7.h"
+//#include "Level8.h"
+//#include "Level9.h"
+//#include "Level10.h"
 #include "GameOverScene.h"
 #include "WinScene.h"
 
@@ -68,6 +73,31 @@ public:
 			currentScene = new Level5();
 			Init();
 			break;
+		case SceneState::LEVEL6_SCENE:
+			Shutdown();
+			currentScene = new Level6();
+			Init();
+			break;
+		//case SceneState::LEVEL5_SCENE:
+		//	Shutdown();
+		//	currentScene = new Level5();
+		//	Init();
+		//	break;
+		//case SceneState::LEVEL5_SCENE:
+		//	Shutdown();
+		//	currentScene = new Level5();
+		//	Init();
+		//	break;
+		//case SceneState::LEVEL5_SCENE:
+		//	Shutdown();
+		//	currentScene = new Level5();
+		//	Init();
+		//	break;
+		//case SceneState::LEVEL5_SCENE:
+		//	Shutdown();
+		//	currentScene = new Level5();
+		//	Init();
+		//	break;
 		case SceneState::GAMEOVER_SCENE:
 			Shutdown();
 			currentScene = new GameOverScene();

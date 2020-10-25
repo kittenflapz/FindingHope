@@ -198,6 +198,7 @@
     <ClInclude Include="Level3.h" />
     <ClInclude Include="Level4.h" />
     <ClInclude Include="Level5.h" />
+    <ClInclude Include="Level6.h" />
     <ClInclude Include="LevelScene.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LightFuelBar.h" />
@@ -236,6 +237,7 @@
     <ClCompile Include="Level3.cpp" />
     <ClCompile Include="Level4.cpp" />
     <ClCompile Include="Level5.cpp" />
+    <ClCompile Include="Level6.cpp" />
     <ClCompile Include="LevelScene.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LightFuelBar.cpp" />
