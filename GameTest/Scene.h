@@ -9,6 +9,7 @@ enum class SceneState
 {
 	NO_SCENE = -1,
 	TITLE_SCENE,
+	PROLOGUE,
 	LEVEL1_SCENE,
 	LEVEL2_SCENE,
 	LEVEL3_SCENE,

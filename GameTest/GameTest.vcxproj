@@ -203,6 +203,7 @@
     <ClInclude Include="LightFuelBar.h" />
     <ClInclude Include="Perfectionism.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Prologue.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="stdafx.h" />
@@ -240,6 +241,7 @@
     <ClCompile Include="LightFuelBar.cpp" />
     <ClCompile Include="Perfectionism.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Prologue.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

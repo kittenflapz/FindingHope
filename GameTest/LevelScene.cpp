@@ -3,18 +3,19 @@
 
 void LevelScene::Init()
 {
+	// Initializing everything that is common across all levels. Called after level setup in derived class init.
 	for (int i = 0; i < TheSceneManager::Instance()->GetLivesLeft(); i++)
 	{
 		flameSprites[i] = App::CreateSprite(".\\TestData\\flame.bmp", 1, 1);
 		flameSprites[i]->SetPosition(30.0f + (i * 30.0f), 688.0f);
-		flameSprites[i]->SetScale(2.0f);
+		flameSprites[i]->SetScale(2.0f); 
+		flameSprites[i]->SetColor(1.0f, 1.0f, 1.0f, 0.5f);
 	}
 	typewriter = new Typewriter();
 	typewriter->PopulateQueue(chapterIntroText);
 	timeToWaitOnWinMessage = 200.0f;
 	timerForWinMessage = 0.0f;
 
-	// UI
 	lightFuelBar = new LightFuelBar(APP_INIT_WINDOW_WIDTH - 50.0f, APP_INIT_WINDOW_HEIGHT * 0.33f, 20.0f, APP_INIT_WINDOW_HEIGHT * 0.33f);
 	light = new Light(512.0f, 384.0f);
 	light->Init();
@@ -83,7 +84,8 @@ void LevelScene::Render()
 		}
 		else
 		{
-			TheSceneManager::Instance()->ChangeSceneState(SceneState::LEVEL2_SCENE);
+			// Go to the next scene (this is why they're in order in the enum)
+			TheSceneManager::Instance()->ChangeSceneState(static_cast<SceneState>(static_cast<int>(TheSceneManager::Instance()->GetCurrentSceneState()) + 1));
 		}
 
 	}

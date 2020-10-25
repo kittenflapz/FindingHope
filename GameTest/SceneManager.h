@@ -1,6 +1,7 @@
 #include "Scene.h"
 #include "LevelScene.h"
 #include "TitleScene.h"
+#include "Prologue.h"
 #include "Level1.h"
 #include "Level2.h"
 #include "Level3.h"
@@ -35,6 +36,11 @@ public:
 		{
 		case SceneState::TITLE_SCENE:
 			currentScene = new TitleScene();
+			Init();
+			break;
+		case SceneState::PROLOGUE:
+			Shutdown();
+			currentScene = new Prologue();
 			Init();
 			break;
 		case SceneState::LEVEL1_SCENE:
@@ -97,6 +103,12 @@ public:
 		currentScene->Shutdown();
 	}
 
+	// Getters and setters
+
+	SceneState GetCurrentSceneState()
+	{
+		return currentSceneState;
+	}
 
 	void SetLivesLeft(int livesLeft)
 	{
