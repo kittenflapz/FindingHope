@@ -9,7 +9,7 @@
 #include "Level5.h"
 #include "Level6.h"
 #include "Level7.h"
-//#include "Level8.h"
+#include "Level8.h"
 //#include "Level9.h"
 //#include "Level10.h"
 #include "GameOverScene.h"
@@ -83,11 +83,11 @@ public:
 			currentScene = new Level7();
 			Init();
 			break;
-		//case SceneState::LEVEL5_SCENE:
-		//	Shutdown();
-		//	currentScene = new Level5();
-		//	Init();
-		//	break;
+		case SceneState::LEVEL8_SCENE:
+			Shutdown();
+			currentScene = new Level8();
+			Init();
+			break;
 		//case SceneState::LEVEL5_SCENE:
 		//	Shutdown();
 		//	currentScene = new Level5();

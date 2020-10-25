@@ -101,6 +101,7 @@
     <ClCompile Include="Level7.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Level8.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App\app.h">
@@ -217,6 +218,7 @@
     <ClInclude Include="Level7.h">
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Level8.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

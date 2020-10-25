@@ -69,7 +69,7 @@ void LevelScene::Update(float deltaTime)
 		}
 		else
 		{
-			GetPlayer()->SetPosition(GetPlayerStartPosition().x, GetPlayerStartPosition().y);
+			TheSceneManager::Instance()->ChangeSceneState(TheSceneManager::Instance()->GetCurrentSceneState());
 			restartLevel = false;
 		}
 	}
