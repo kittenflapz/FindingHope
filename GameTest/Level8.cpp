@@ -33,7 +33,7 @@ void Level8::Init()
 
 	// Helplessness
 
-	Helplessness* helplessness = new Helplessness(870.0f, 100.0f, 20.0f, 0.3f);
+	Helplessness* helplessness = new Helplessness(870.0f, 700.0f, 20.0f, 0.3f);
 	AddToEnemyList(helplessness);
 
 	LevelScene::Init();

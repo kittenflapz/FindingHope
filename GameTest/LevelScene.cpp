@@ -60,7 +60,7 @@ void LevelScene::Update(float deltaTime)
 				}
 			}
 
-			if (GetCollisionChecker().PlayerEmotion(GetPlayer(), GetHope()) && HasWon() == false)
+			if (GetCollisionChecker().PlayerEmotion(GetPlayer(), GetHope()) && HasWon() == false || App::GetController().CheckButton(XINPUT_GAMEPAD_B, false))
 			{
 				App::PlaySound(".\\Sounds\\Bells.wav", false);
 				Win();
