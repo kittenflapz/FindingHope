@@ -21,6 +21,10 @@ public:
 private:
 	bool lightOn;
 	CSimpleSprite* flameSprites[3];
+	std::string chapterIntroText;
+	bool showStartText;
+	float startTextDelay;
+	float startTextTimer;
 };
 
 #endif //BENGINE_GAMESCENE_H

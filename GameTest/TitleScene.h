@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include "Typewriter.h"
 
 #ifndef TITLESCENE_H
 #define TITLESCENE_H
@@ -14,6 +15,7 @@ public:
 private:
 	Light* light;
 	CSimpleSprite* titleText;
+	Typewriter typewriter;
 };
 
 #endif //TITLESCENE_H

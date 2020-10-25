@@ -11,23 +11,27 @@ void TitleScene::Init()
 	App::PlaySound(".\\Sounds\\PatakasWorld.wav", true);
 	light = new Light(512.0f, 384.0f);
 	light->Init();
+	std::string testStr = "in memory of Donnie";
+	typewriter.PopulateQueue(testStr);
+
 	TheSceneManager::Instance()->SetLivesLeft(3);
 	glClearColor(0.074f, 0.035f, 0.07f, 1.0f);
 }
 
 void TitleScene::Update(float deltaTime)
 {
+
 	if (App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
 	{
 		TheSceneManager::Instance()->ChangeSceneState(SceneState::LEVEL1_SCENE);
 	}
-
 }
 
 void TitleScene::Render()
 {
 	light->Render();
 	titleText->Draw();
+	typewriter.Update();
 }
 
 void TitleScene::Shutdown()
