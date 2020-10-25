@@ -8,10 +8,17 @@ Fear::Fear(float x, float y, float radius, float speed, vec2<float> patrolPointA
 	SetSpeed(0.2f);
 	this->patrolPointA = patrolPointA;
 	this->patrolPointB = patrolPointB;
+	targetPoint = patrolPointA;
 }
 
 Fear::~Fear()
 {
+}
+
+void Fear::Update(float deltaTime)
+{
+	Patrol();
+	Emotion::Update(deltaTime);
 }
 
 // Super simple patrol. If we're at A, go to B. If we're at B, go to A.

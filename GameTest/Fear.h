@@ -14,6 +14,8 @@ public:
 	Fear(float x, float y, float radius, float speed, vec2<float> patrolPointA, vec2<float> patrolPointB);
 	~Fear();
 
+	void Update(float deltaTime);
+
 	// Functions specific to Fear
 	void Patrol();
 

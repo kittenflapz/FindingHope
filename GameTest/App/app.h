@@ -19,6 +19,7 @@
 #include"../Anxiety.h"
 #include "../Helplessness.h"
 #include "../AIController.h"
+#include "../Typewriter.h"
 
 #include "../LightFuelBar.h"
 #include "../CollisionChecker.h"

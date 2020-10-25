@@ -5,26 +5,71 @@
 #define LEVELSCENE_H
 
 // Base class for gameplay levels
-// May be unnecessary as everything could derive directly from Scene, but this is more organized
+
 class LevelScene : public Scene
 {
 public:
 	void Init();
 	void Update(float deltaTime);
 	void Render();
-	void Shutdown() = 0;
+	void Shutdown();
 
 	// Getters and setters
 	inline bool LightIsOn() { return lightOn; }
 	inline void SetLightOn(bool lightOn) { this->lightOn = lightOn; }
 
+	void SetStartText(std::string chapterIntroText);
+
+	CollisionChecker GetCollisionChecker();
+
+	void SetPlayerStartPosition(vec2<float> startPos);
+	vec2<float> GetPlayerStartPosition();
+
+	void SetHopeStartPosition(vec2<float> startPos);
+	vec2<float> GetHopeStartPosition();
+
+	Player* GetPlayer();
+	Hope* GetHope();
+
+
+	// Other functions
+
+	void RestartLevel();
+	void Win();
+	void CreatePlayer();
+	void CreateHope();
+	bool HasWon();
+	bool LevelRestart();
+	void AddToEnemyList(Emotion* enemy);
+
 private:
-	bool lightOn;
+	// UI
 	CSimpleSprite* flameSprites[3];
+	Typewriter* typewriter;
 	std::string chapterIntroText;
-	bool showStartText;
-	float startTextDelay;
-	float startTextTimer;
+
+	// For ending the level gracefully
+	float timeToWaitOnWinMessage;
+	float timerForWinMessage;
+
+	// GameObjects
+	LightFuelBar* lightFuelBar;
+	Light* light;
+	Player* player;
+	Hope* hope;
+	std::vector<Emotion*> enemyList;
+
+
+	CollisionChecker collisionChecker;
+
+	// Gameplay
+	bool hasWon;
+	bool restartLevel;
+	bool lightOn;
+	vec2<float> playerStartPosition; 
+	vec2<float> hopeStartPosition;
+
+
 };
 
 #endif //BENGINE_GAMESCENE_H
