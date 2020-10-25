@@ -14,8 +14,9 @@ public:
 	Helplessness(float x, float y, float radius, float speed);
 	~Helplessness();
 
-	// Functions specific to Fear
-	void FollowPlayerIfClose(vec2<float> playerPos);
+	void Update(float deltaTime);
+	// Functions specific to Helplessness
+	void FollowPlayerIfClose();
 
 private:
 	vec2<float> targetPoint;

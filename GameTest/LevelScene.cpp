@@ -51,6 +51,7 @@ void LevelScene::Update(float deltaTime)
 			for (int i = 0; i < enemyList.size(); i++)
 			{
 				enemyList[i]->Update(deltaTime);
+				enemyList[i]->SetPlayerPosition(GetPlayer()->GetPosition());
 				if (GetCollisionChecker().PlayerEmotion(GetPlayer(), enemyList[i]))
 				{
 					App::PlaySound(".\\Sounds\\Pop.wav", false);

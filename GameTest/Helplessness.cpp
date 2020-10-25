@@ -13,11 +13,19 @@ Helplessness::~Helplessness()
 {
 }
 
-void Helplessness::FollowPlayerIfClose(vec2<float> playerPos)
+void Helplessness::Update(float deltaTime)
 {
-	if (aiController.WithinDistance(playerPos, GetPosition(), 300.0f))
+	FollowPlayerIfClose();
+	Emotion::Update(deltaTime);
+}
+
+
+
+void Helplessness::FollowPlayerIfClose()
+{
+	if (aiController.WithinDistance(GetPlayerPosition(), GetPosition(), 300.0f))
 	{
-		targetPoint = playerPos;
+		targetPoint = GetPlayerPosition();
 	}
 	vec2<float> normalizedDirectionalVector = aiController.GetNormalizedVectorTowardsPoint(GetPosition(), targetPoint);
 	SetVelocity(normalizedDirectionalVector.x, normalizedDirectionalVector.y);

@@ -124,3 +124,8 @@ void Emotion::SetPulseRate(float pulseRate)
 {
 	pulser = pulseRate;
 }
+
+void Emotion::SetPlayerPosition(vec2<float> playerPosition)
+{
+	this->playerPosition = playerPosition;
+}

@@ -32,12 +32,14 @@ public:
 	float GetRadius() { return radius; }
 	float GetSpeed() { return speed; }
 	vec2<float> GetVelocity() { return velocity; }
+	vec2<float> GetPlayerPosition() { return playerPosition; }
 	void SetPosition(float x, float y);
 	void SetRadius(float radius);
 	void SetSpeed(float speed);
 	void SetVelocity(float x, float y);
 	void SetColor(float r, float g, float b);
 	void SetPulseRate(float pulseRate);
+	void SetPlayerPosition(vec2<float> playerPosition);
 
 	void Pulse(float deltaTime);
 	BlinkState SwitchStateAndResetBlinkTime();
@@ -48,6 +50,7 @@ private:
 	// Movement
 	vec2<float> position;
 	vec2<float> velocity;
+	vec2<float> playerPosition;
 	float radius;
 	float maxRadius;
 	float minRadius;
