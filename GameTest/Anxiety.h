@@ -14,7 +14,9 @@ public:
 	Anxiety(float x, float y, float radius, float speed, vec2<float> patrolPointA, vec2<float> patrolPointB);
 	~Anxiety();
 
-	// Functions specific to Fear
+	void Update(float deltaTime);
+
+	// Functions specific to Anxiety
 	void PatrolRandomPoints();
 	vec2<float> GetRandomFloatPair();
 

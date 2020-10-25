@@ -13,6 +13,12 @@ Perfectionism::~Perfectionism()
 {
 }
 
+void Perfectionism::Update(float deltaTime)
+{
+	PatrolInLoop();
+	Emotion::Update(deltaTime);
+}
+
 void Perfectionism::SetPatrolPoints(std::list<vec2<float>> patrolPoints)
 {
 	aiController.PopulateNodeQueue(patrolPoints);

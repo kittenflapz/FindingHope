@@ -46,7 +46,6 @@ void Emotion::Pulse(float deltaTime)
 Emotion::BlinkState Emotion::SwitchStateAndResetBlinkTime()
 {
 	// Get a uniformly distributed random number
-	// for refactoring - can I do this somewhere else without The Big Sad happening?
 	std::random_device randdev;
 	std::mt19937 generator(randdev());
 	std::uniform_real_distribution<> distrib(0, 60);

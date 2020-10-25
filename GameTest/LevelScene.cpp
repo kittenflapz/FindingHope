@@ -27,48 +27,50 @@ void LevelScene::Update(float deltaTime)
 	{
 		TheSceneManager::Instance()->ChangeSceneState(SceneState::GAMEOVER_SCENE);
 	}
-
-	if (App::GetController().CheckButton(XINPUT_GAMEPAD_A, false))
+	if (!hasWon)
 	{
-		if (lightFuelBar->GetCurrentFuel() > 0)
+		if (App::GetController().CheckButton(XINPUT_GAMEPAD_A, false))
 		{
-			SetLightOn(true);
-			lightFuelBar->DecrementFuel();
-		}
-	}
-	else
-	{
-		SetLightOn(false);
-	}
-
-
-	if (LevelRestart() == false)
-	{
-		GetPlayer()->Update(deltaTime);
-		GetHope()->Update(deltaTime);
-
-		for (int i = 0; i < enemyList.size(); i++)
-		{
-			enemyList[i]->Update(deltaTime);
-			if (GetCollisionChecker().PlayerEmotion(GetPlayer(), enemyList[i]))
+			if (lightFuelBar->GetCurrentFuel() > 0)
 			{
-				App::PlaySound(".\\Sounds\\Pop.wav", false);
-				RestartLevel();
-				TheSceneManager::Instance()->LoseLife();
+				SetLightOn(true);
+				lightFuelBar->DecrementFuel();
 			}
 		}
-
-		if (GetCollisionChecker().PlayerEmotion(GetPlayer(), GetHope()) && HasWon() == false)
+		else
 		{
-			App::PlaySound(".\\Sounds\\Bells.wav", false);
-			Win();
+			SetLightOn(false);
 		}
 
-	}
-	else
-	{
-		GetPlayer()->SetPosition(GetPlayerStartPosition().x, GetPlayerStartPosition().y);
-		restartLevel = false;
+
+		if (LevelRestart() == false)
+		{
+			GetPlayer()->Update(deltaTime);
+			GetHope()->Update(deltaTime);
+
+			for (int i = 0; i < enemyList.size(); i++)
+			{
+				enemyList[i]->Update(deltaTime);
+				if (GetCollisionChecker().PlayerEmotion(GetPlayer(), enemyList[i]))
+				{
+					App::PlaySound(".\\Sounds\\Pop.wav", false);
+					RestartLevel();
+					TheSceneManager::Instance()->LoseLife();
+				}
+			}
+
+			if (GetCollisionChecker().PlayerEmotion(GetPlayer(), GetHope()) && HasWon() == false)
+			{
+				App::PlaySound(".\\Sounds\\Bells.wav", false);
+				Win();
+			}
+
+		}
+		else
+		{
+			GetPlayer()->SetPosition(GetPlayerStartPosition().x, GetPlayerStartPosition().y);
+			restartLevel = false;
+		}
 	}
 }
 

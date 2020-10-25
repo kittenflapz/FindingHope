@@ -3,113 +3,61 @@
 
 void Level4::Init()
 {
+	// UI
+	SetStartText("chapter four: perfectionism");
 
-	LevelScene::Init();
 	// Player
-	startPosition = vec2<float>(APP_INIT_WINDOW_WIDTH * 0.5f, APP_INIT_WINDOW_HEIGHT - 100.0f);
-	player = new Player(startPosition.x, startPosition.y, 50.0f, 50.0f, 0.05f);
+	SetPlayerStartPosition(vec2<float>(APP_INIT_WINDOW_WIDTH * 0.5f, 100.0f));
+	CreatePlayer();
 
 	// Goal
-	hope = new Hope(APP_INIT_WINDOW_WIDTH * 0.5f,  100.0f, 20.0f, 0.5f);
-
-	// UI
-	lightFuelBar = new LightFuelBar(APP_INIT_WINDOW_WIDTH - 50.0f, APP_INIT_WINDOW_HEIGHT * 0.33f, 20.0f, APP_INIT_WINDOW_HEIGHT * 0.33f);
-	light = new Light(512.0f, 384.0f);
-	light->Init();
+	SetHopeStartPosition(vec2<float>(APP_INIT_WINDOW_WIDTH * 0.5f, APP_INIT_WINDOW_HEIGHT - 100.0f));
+	CreateHope();
 
 	// Enemies
-	perfectionism = new Perfectionism(APP_INIT_WINDOW_WIDTH * 0.5f, APP_INIT_WINDOW_HEIGHT * 0.5, 20.0f, 0.5f);
-	perfectionism->SetPatrolPoints({ vec2<float>(200.0f, 568.0f), vec2<float>(200.0f, 200.0f), vec2<float>(824.0f, 200.0f), vec2<float>(824.0f, 568.0f) });
 
+	// Patrolling in square
+	std::list<vec2<float>> patrolPoints = { vec2<float>(150.0f, 550.0f), vec2<float>(150.0f, 250.0f), vec2<float>(750.0f, 250.0f), vec2<float>(750.0f, 550.0f) };
+	Perfectionism* perfectionism = new Perfectionism(512.0f, 600.0f, 20.0f, 0.4f);
+	perfectionism->SetPatrolPoints(patrolPoints);
+	AddToEnemyList(perfectionism);
+
+	// Patrolling in circle
+	patrolPoints.clear();
+	float angle = 2.0f * M_PI / 20;
+	int radius = 100;
+	for (int i = 0; i < 20 + 1; i++)
+	{
+		if (i > 0)
+		{
+			patrolPoints.push_back(vec2<float>(512.0f + radius * sin(i * angle), 384.0f + radius * cos(i * angle)));
+		}
+	}
+	perfectionism = new Perfectionism(512.0f, 384.0f, 20.0f, 0.4f);
+	perfectionism->SetPatrolPoints(patrolPoints);
+	AddToEnemyList(perfectionism);
+
+	// Patrolling in triangle
+	patrolPoints.clear();
+	patrolPoints = { vec2<float>(512.0f, 400.0f), vec2<float>(482.0f, 360.0f), vec2<float>(542.0f, 360.0f) };
+	perfectionism = new Perfectionism(512.0f, 384.0f, 20.0f, 0.4f);
+	perfectionism->SetPatrolPoints(patrolPoints);
+	AddToEnemyList(perfectionism);
+
+	LevelScene::Init();
 }
 
 void Level4::Update(float deltaTime)
 {
 	LevelScene::Update(deltaTime);
-	if (!restartLevel)
-	{
-		player->Update(deltaTime);
-		hope->Update(deltaTime);
-
-		perfectionism->PatrolInLoop();
-		perfectionism->Update(deltaTime);
-
-		if (collisionChecker.PlayerEmotion(player, perfectionism))
-		{
-			App::PlaySound(".\\Sounds\\Pop.wav", false);
-			restartLevel = true;
-			TheSceneManager::Instance()->LoseLife();
-		}
-
-		if (App::GetController().CheckButton(XINPUT_GAMEPAD_A, false))
-		{
-			if (lightFuelBar->GetCurrentFuel() > 0)
-			{
-				SetLightOn(true);
-				lightFuelBar->DecrementFuel();
-			}
-		}
-		else
-		{
-			SetLightOn(false);
-		}
-
-
-		if (collisionChecker.PlayerEmotion(player, hope) && !hasWon)
-		{
-			App::PlaySound(".\\Sounds\\Bells.wav", false);
-			hasWon = true;
-		}
-
-	}
-	else
-	{
-		player->SetPosition(startPosition.x, startPosition.y);
-		restartLevel = false;
-	}
 }
 
 void Level4::Render()
 {
-	if (hasWon)
-	{
-		if (timerForWinMessage < timeToWaitOnWinMessage)
-		{
-			std::string scoreString = "Hope: You've found me! Thank you!";
-			App::Print(APP_INIT_WINDOW_WIDTH * 0.36f, APP_INIT_WINDOW_HEIGHT * 0.5f, scoreString.c_str());
-			timerForWinMessage++;
-		}
-		else
-		{
-			TheSceneManager::Instance()->ChangeSceneState(SceneState::LEVEL5_SCENE);
-		}
-
-	}
-	else
-	{
-		if (LightIsOn())
-		{
-			player->Render();
-			hope->Render();
-			perfectionism->Render();
-			light->Render();
-			lightFuelBar->Render();
-			glClearColor(0.074f, 0.035f, 0.07f, 1.0f);
-
-		}
-		else
-		{
-			lightFuelBar->Render();
-			glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-		}
-	}
 	LevelScene::Render();
 }
 
 void Level4::Shutdown()
 {
-	delete player;
-	delete hope;
-	delete light;
-	delete perfectionism;
+	LevelScene::Shutdown();
 }

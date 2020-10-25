@@ -13,23 +13,6 @@ public:
 	void Render() override;
 	void Shutdown() override;
 private:
-	Player* player;
-	Hope* hope;
-	LightFuelBar* lightFuelBar;
-	Light* light;
-
-	std::vector<Fear*> fears;
-
-
-	CollisionChecker collisionChecker;
-	bool hasWon;
-	bool restartLevel; // this might go in LevelScene
-	vec2<float> startPosition;
-
-	// For ending the level gracefully
-	float timeToWaitOnWinMessage;
-	float timerForWinMessage;
-
 };
 
 #endif // LEVEL2_H

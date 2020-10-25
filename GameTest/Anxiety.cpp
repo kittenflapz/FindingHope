@@ -15,6 +15,12 @@ Anxiety::~Anxiety()
 {
 }
 
+void Anxiety::Update(float deltaTime)
+{
+	PatrolRandomPoints();
+	Emotion::Update(deltaTime);
+}
+
 // Super simple patrol like fear, except randomizing points!
 
 void Anxiety::PatrolRandomPoints()
